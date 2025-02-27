@@ -1,0 +1,136 @@
+<html>
+  <head>
+    <title>HealthBridge Ayeyarwady</title>
+    <meta charset="utf-8">
+	<link rel="shortcut icon" type="x-icon" href="images/heart-1.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/Day_ff.css">
+  </head>
+  <body>
+    <div class="main">
+      <div class="container" style="margin-top: 60px;">
+        <div class="header">
+          <a href="chairDay1.html"><i class="fas fa-arrow-left"></i></a>
+          <h1>DAY 1</h1>
+        </div>
+        <ul class="exercise-list">
+          <li class="exercise-item">
+            <video autoplay loop muted>
+              <source src="video/aged-man-doing-ankle-rolls-exercise.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <div class="details">
+              <h2>Ankle Rolls</h2>
+              <p>00:20</p>
+            </div>
+            <button class="more-btn" onclick="showExerciseDetail
+            ('Ankle Rolls', 'video/aged-man-doing-ankle-rolls-exercise.mp4', '00:20', 'Start in a plank position with your arms straight. Keep your core tight and engage your chest. Bring your right knee towards your chest and then quickly switch legs as if climbing a mountain. Maintain a fast pace while keeping your hips level. Breathe steadily as you perform the movement, exhaling with each switch of the legs.')">More</button>
+          </li>
+          <li class="exercise-item">
+            <video autoplay loop muted>
+              <source src="video/aged-man-doing-back-leg-raises-exercise.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <div class="details">
+              <h2>Back Leg Raises</h2>
+              <p>00:20</p>
+            </div>
+            <button class="more-btn" onclick="showExerciseDetail
+            ('Back Leg Raises', 'video/aged-man-doing-back-leg-raises-exercise.mp4', '00:20', 'Sit on the edge of a bench or chair with your hands placed next to your hips, fingers pointing forward. Bend your elbows to lower your body towards the ground, then push through your palms to return to the starting position. Keep your elbows close to your body and avoid letting your shoulders shrug up. Breathe in as you lower yourself and breathe out as you push yourself back up.')">More</button>
+          </li>
+          <li class="exercise-item">
+            <video autoplay loop muted>
+              <source src="video/aged-man-doing-single-leg-stand.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <div class="details">
+              <h2>Single Leg Stand</h2>
+              <p>00:20</p>
+            </div>
+            <button class="more-btn" onclick="showExerciseDetail
+            ('Single Leg Stand', 'video/aged-man-doing-single-leg-stand.mp4', '00:20', 'Start with your feet together and your arms at your sides. Jump up, spreading your legs wide and raising your arms above your head. Quickly return to the starting position and repeat. Keep your core tight and knees slightly bent. Maintain a steady breathing rhythm and avoid locking your knees during each jump.')">More</button>
+          </li>
+          <li class="exercise-item">
+            <video autoplay loop muted>
+              <source src="video/aged-man-doing-ankle-rolls-exercise.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <div class="details">
+              <h2>Ankle Rolls</h2>
+              <p>00:20</p>
+            </div>
+            <button class="more-btn" onclick="showExerciseDetail
+            ('Ankle Rolls', 'video/aged-man-doing-ankle-rolls-exercise.mp4', '00:20', 'Start in a plank position with your arms straight. Keep your core tight and engage your chest. Bring your right knee towards your chest and then quickly switch legs as if climbing a mountain. Maintain a fast pace while keeping your hips level. Breathe steadily as you perform the movement, exhaling with each switch of the legs.')">More</button>
+          </li>
+          <li class="exercise-item">
+            <video autoplay loop muted>
+              <source src="video/aged-man-doing-back-leg-raises-exercise.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <div class="details">
+              <h2>Back Leg Raises</h2>
+              <p>00:20</p>
+            </div>
+            <button class="more-btn" onclick="showExerciseDetail
+            ('Back Leg Raises', 'video/aged-man-doing-back-leg-raises-exercise.mp4', '00:20', 'Sit on the edge of a bench or chair with your hands placed next to your hips, fingers pointing forward. Bend your elbows to lower your body towards the ground, then push through your palms to return to the starting position. Keep your elbows close to your body and avoid letting your shoulders shrug up. Breathe in as you lower yourself and breathe out as you push yourself back up.')">More</button>
+          </li>
+          <li class="exercise-item">
+            <video autoplay loop muted>
+              <source src="video/aged-man-doing-single-leg-stand.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <div class="details">
+              <h2>Single Leg Stand</h2>
+              <p>00:20</p>
+            </div>
+            <button class="more-btn" onclick="showExerciseDetail
+            ('Single Leg Stand', 'video/aged-man-doing-single-leg-stand.mp4', '00:20', 'Start with your feet together and your arms at your sides. Jump up, spreading your legs wide and raising your arms above your head. Quickly return to the starting position and repeat. Keep your core tight and knees slightly bent. Maintain a steady breathing rhythm and avoid locking your knees during each jump.')">More</button>
+          </li>
+         
+        </ul>
+        <div class="footer">
+          <button class="start" onclick="window.location = 'chairmanexed1.html'">Start</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Exercise Detail Modal -->
+    <div id="exerciseDetail" class="exercise-detail">
+      <div class="detail-content">
+        <h2 id="exerciseTitle"></h2>
+        <video id="exerciseVideo" autoplay loop muted></video>
+        <p id="exerciseDuration"></p>
+        <p id="exerciseInstructions"></p>
+        <button class="close-detail" onclick="closeExerciseDetail()">Close</button>
+      </div>
+    </div>
+
+    <script>
+      function showExerciseDetail(title, videoSource, duration, instructions) {
+        document.getElementById("exerciseTitle").innerText = title;
+        document.getElementById("exerciseVideo").src = videoSource;
+        document.getElementById("exerciseDuration").innerText = "Duration: " + duration;
+        document.getElementById("exerciseInstructions").innerText = instructions;
+
+        // Add the show class to trigger animation
+        const exerciseDetail = document.getElementById("exerciseDetail");
+        exerciseDetail.classList.add('show');
+
+        // Allow some time for the transition before fully showing
+        setTimeout(() => {
+          document.querySelector(".exercise-detail .detail-content").style.transform = "scale(1)";
+        }, 100); // 100ms delay before scaling content
+      }
+
+      function closeExerciseDetail() {
+        // Scale the content down first
+        document.querySelector(".exercise-detail .detail-content").style.transform = "scale(0.8)";
+
+        // Wait for the scale down transition to finish before hiding
+        setTimeout(() => {
+          document.getElementById("exerciseDetail").classList.remove('show');
+        }, 400); // Wait for the 0.4s scale transition
+      }
+    </script>
+  </body>
+</html>

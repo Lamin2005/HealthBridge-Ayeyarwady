@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calorie Calculator</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/slider.css">
+	
+	<script src="navscript.js"></script>
+    <style>
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f9f9f9, #e4f1fe);
+            color: #333;
+            height: 100vh;
+          
+        }
+
+        .container-2 {
+            background-color: #ffffff;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .h1{
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #007bff;
+            font-weight: bold;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 8px;
+            text-align: left;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        input:focus {
+            border-color:#4793e4;
+            outline: none;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+        }
+
+        .button1 {
+            width: 100%;
+            padding: 15px 0;
+            background-color:#17a2b8;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .button1:hover {
+            background-color: #17a2b8;
+            transform: translateY(-2px);
+        }
+
+        .button1:active {
+            background-color:#17a2b8;
+            transform: translateY(0);
+        }
+
+        .food-list {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #f0f5f9;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .food-item {
+            background-color: #f9f9f9;
+            padding: 12px;
+            border-left: 5px solid #4c66af;
+            border-radius: 8px;
+            margin-top: 12px;
+            font-size: 1rem;
+            color: #333;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .food-item strong {
+            color:#17a2b8;
+        }
+
+        .total-calories {
+            font-weight: bold;
+            color: #17a2b8;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            background: linear-gradient(45deg,#1762b8, #175db8);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .food-item:hover {
+            background-color: #e8eff5;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .main{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #f9f9f9, #e4f1fe);
+        }
+
+        
+        .language-toggle {
+            padding: 10px 20px;
+            cursor: pointer;
+            border:2px solid black;
+            color: white;
+            font-size: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+	        font-family: Arial, sans-serif;
+            text-align: center;
+		}
+    </style>
+</head>
+<body>
+
+	
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Health<span>coach<i class="fa fa-leaf"></i></span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="fa fa-bars"></span> Menu
+            </button>
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active"><a href="index.html" class="nav-link" data-key="home">Home</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link" data-key="about">About</a></li>
+                    <li class="nav-item"><a href="pricing.html" class="nav-link" data-key="price">Pricing</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="services.html" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-key="service">Services</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="service1.html">Service 1</a>
+                            <a class="dropdown-item" href="service2.html">Service 2</a>
+                            <a class="dropdown-item" href="service3.html">Service 3</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a href="success-stories.html" class="nav-link" data-key="knowledge">Knowledge</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link" data-key="contact">Contact</a></li>
+                    <li class="nav-item" id="nav-links"></li>
+                </ul>
+                <button class="language-toggle" onclick="toggleLanguage()">Myanmar</button>
+            </div>
+        </div>
+</nav>
+
+<div class="main">
+    <div class="container-2">
+        <h1 class="h1"> Food Calorie Calculator</h1>
+    
+        <label for="foodInput">Enter Food Name</label>
+        <input type="text" id="foodInput" placeholder="Enter food name (e.g., မုန့်ဟင်းခါး,apple,banana)" required>
+    
+        <label for="weight">Weight (grams)</label>
+        <input type="number" id="weight" placeholder="Enter weight in grams" min="1" required>
+    
+        <button onclick="addFood()" class="button1">➕ Add Food</button>
+    
+        <div class="food-list" id="foodList"></div>
+    
+        <div class="total-calories" id="totalCalories">Total Calories: 0 kcal</div>
+    </div>
+</div>
+
+
+<script>
+    // Pre-defined calorie data (food name and calories per 100g)
+    const foodData = [
+    { name: "Apple", calories: 52 },
+        { name: "Banana", calories: 89 },
+        { name: "Watermelon", calories: 30 },
+        { name: "Grapes", calories: 69 },
+        { name: "Strawberries", calories: 33 },
+        { name: "Rice (Cooked)", calories: 130 },
+        { name: "Chicken (Breast)", calories: 165 },
+        { name: "Beef (Steak)", calories: 250 },
+        { name: "Bread", calories: 265 },
+        { name: "Pasta (Cooked)", calories: 158 },
+        { name: "Milk (Whole)", calories: 61 },
+        { name: "Egg (Boiled)", calories: 155 },
+        { name: "Potato (Boiled)", calories: 77 },
+        { name: "Carrot (Raw)", calories: 41 },
+        { name: "Tomato", calories: 18 },
+        { name: "Sweet Potato", calories: 90 },
+        { name: "Cheddar Cheese", calories: 403 },
+        { name: "Chocolate (Milk)", calories: 535 },
+        { name: "Popcorn (Plain)", calories: 375 },
+        { name: "Peanuts", calories: 567 },
+        { name: "မုန့်ဟင်းခါး", calories: 90 },
+        { name: "လက်ဖက်သုပ်", calories: 150 },
+        { name: "ရှမ်းခေါက်ဆွဲ", calories: 210 },
+        { name: "အုန်းနိုက်ခေါက်ဆွဲ", calories: 250 },
+        { name: "ဘိန်းမုန့်", calories: 180 },
+        { name: "နန်းကြီးသုပ်", calories: 220 },
+        { name: "ထမင်းကြော်", calories: 1.50 },  // Calories per 1g
+        { name: "Alcohol", calories: 0.75 },      // Calories per 1g
+        { name: "Energy Drink", calories: 0.45 }, // Calories per 1g
+        { name: "Water", calories: 0 },           // Calories per 1g
+        { name: "Rice (Cooked White Rice)", calories: 1.43 }, // Calories per 1g
+        { name: "နန်းကြီးသုပ်", calories: 1.80 } // Calories per 1g (for Burmese Nan Gyi Thoke)
+    ];
+
+    let totalCalories = 0;
+
+    function addFood() {
+        const foodName = document.getElementById('foodInput').value.trim();
+        const weight = parseFloat(document.getElementById('weight').value);
+
+        // Check if the food name exists in the data
+        const foodItem = foodData.find(food => food.name.toLowerCase() === foodName.toLowerCase());
+
+        if (!foodItem || isNaN(weight) || weight <= 0) {
+            alert('❌ Please enter a valid food name and weight.');
+            return;
+        }
+
+        // Calculate the calories for this food item
+        const foodCalories = (weight * foodItem.calories) / 100;
+
+        // Add to the total calories
+        totalCalories += foodCalories;
+
+        // Display the new food item
+        const foodList = document.getElementById('foodList');
+        const foodElement = document.createElement('div');
+        foodElement.classList.add('food-item');
+        foodElement.innerHTML = `🍽️ <strong>${foodItem.name}</strong> - ${weight}g = <strong>${foodCalories.toFixed(2)} kcal</strong>`;
+        foodList.appendChild(foodElement);
+
+        // Update total calories display
+        document.getElementById('totalCalories').innerText = `Total Calories: ${totalCalories.toFixed(2)} kcal`;
+
+        // Reset input fields
+        document.getElementById('foodInput').value = '';
+        document.getElementById('weight').value = '';
+    }
+</script>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-migrate-3.0.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/jquery.waypoints.min.js"></script>
+<script src="js/jquery.stellar.min.js"></script>
+<script src="js/jquery.animateNumber.min.js"></script>
+<script src="js/bootstrap-datepicker.js"></script>
+<script src="js/jquery.timepicker.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/scrollax.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script src="js/google-map.js"></script>
+<script src="js/main.js"></script>
+<script src="js/lan.js"></script>
+<script src="js/comment.js"></script>
+<script src="js/slider.js"></script>
+
+  
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Bookings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9fb;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 1.8rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        table th, table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        table th {
+            background-color: #17a2b8;
+            color: white;
+        }
+        .badge {
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            color: white;
+        }
+        .badge.pending { background-color: #ffc107; }
+        .badge.completed { background-color: #28a745; }
+        .badge.canceled { background-color: #dc3545; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Client Bookings</h1>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Client</th>
+                    <th>Service</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John Doe</td>
+                    <td>Yoga Class</td>
+                    <td>2025-01-10</td>
+                    <td><span class="badge pending">Pending</span></td>
+                    <td>$15</td>
+                </tr>
+                <tr>
+                    <td>Jane Smith</td>
+                    <td>Nutritional Counseling</td>
+                    <td>2025-01-12</td>
+                    <td><span class="badge completed">Completed</span></td>
+                    <td>$30</td>
+                </tr>
+                <tr>
+                    <td>Mike Johnson</td>
+                    <td>Personal Training</td>
+                    <td>2025-01-15</td>
+                    <td><span class="badge canceled">Canceled</span></td>
+                    <td>$50</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,157 @@
+
+* {
+box-sizing: border-box;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+body {
+height: 100vh;
+align-items: center;
+font-family: "Inter", sans-serif;
+background-color: #eaf6ff;
+margin: 0;
+}
+
+:root {
+--c-ribbon: #2f2f2f;
+--c-ribbon-shadow: #666;
+--c-ribbon-text: #efefef;
+--c-title: #2f2f2f;
+}
+
+
+
+.price-table {
+margin-top: 30px;
+display: flex;
+width: 100%;
+justify-content: center;
+align-items: center;
+}
+
+.price-card {
+color: #555;
+background-color: #fff;
+width: 25%;
+max-width: 15rem;
+text-align: center;
+margin: 0 2rem;
+padding: 0.5rem 0 1rem;
+}
+
+.price-card__ribbon {
+position: relative;
+padding: 2rem 1rem;
+margin: 0 -0.8rem 2rem;
+background-color: var(--c-ribbon);
+transform: skew(0, -10deg);
+border-radius: 3px 0;
+box-shadow: 0 2rem 1.2rem -2rem var(--c-ribbon-shadow);
+}
+
+.price-card__ribbon:before,
+.price-card__ribbon:after {
+width: 0;
+height: 0;
+border-style: solid;
+content: "";
+position: absolute;
+}
+
+.price-card__ribbon:before {
+border-width: 0 0.8rem 0.8rem 0;
+border-color: transparent var(--c-ribbon-shadow) transparent transparent;
+left: 0;
+bottom: 0;
+transform: translateY(100%);
+}
+
+.price-card__ribbon:after {
+border-width: 0.8rem 0 0 0.8rem;
+border-color: transparent transparent transparent var(--c-ribbon-shadow);
+right: 0;
+top: 0;
+transform: translateY(-100%);
+}
+
+.price-card__ribbon-text {
+color: var(--c-ribbon-text);
+font-size: 2rem;
+line-height: 1.4;
+font-weight: 700;
+display: block;
+transform: skew(0, 10deg);
+}
+
+.price-card__title {
+color: var(--c-title);
+}
+
+.price-card--highlight {
+--c-ribbon: #1472ec;
+--c-ribbon-text: #fff;
+--c-ribbon-shadow: #5478c7;
+--c-title: #1472ec;
+
+box-shadow: 0 0 3rem -1.5rem rgba(0, 0, 0, 0.5);
+}
+price-card--highlight {
+--c-ribbon: #17d3d3;
+--c-ribbon-text: #fff;
+--c-ribbon-shadow: #474e5f;
+--c-title: #17d3d3;
+
+box-shadow: 0 0 3rem -1.5rem rgba(0, 0, 0, 0.5);
+}
+
+.price-card__button {
+display: inline-block;
+margin-top: 1rem;
+padding: 0.6rem 1.5rem;
+background: linear-gradient(135deg, #68affc, #81e0fa);
+color: navy;
+border: none;
+border-radius: 5px;
+font-size: 1rem;
+font-weight: 600;
+cursor: pointer;
+transition: all 0.3s ease-in-out;
+position: relative;
+overflow: hidden;
+}
+
+.price-card__button:hover {
+background: linear-gradient(135deg, #81e0fa,  #68affc);
+transform: scale(1.05);
+box-shadow: 0 8px 15px rgba(249, 66, 137, 0.3);
+}
+
+.price-card__button:active {
+transform: scale(0.98);
+box-shadow: 0 4px 10px rgba(249, 66, 137, 0.2);
+}
+h1{
+text-align: center;
+font-size: 30px;
+border-bottom: 2px solid  #1472ec;
+width: 570px;
+color: navy;
+padding-bottom: 10px;
+}
+.title{
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 30px;
+}
+@media (max-width: 768px) {
+    .price-table {
+      flex-direction: column;
+      align-items: center;
+      
+    }
+    .price-card{
+        margin-bottom: 30px;
+        width: 15rem;
+      }}

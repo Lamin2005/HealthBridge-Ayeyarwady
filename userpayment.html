@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+     <title>HealthBridge Ayeyarwady</title>
+    <meta charset="utf-8">
+	<link rel="shortcut icon" type="x-icon" href="images/heart-1.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="js/userpayment.js" defer></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+       
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url(images/bg-risk-screener.jpg);
+            overflow: hidden;
+        }
+
+        .container {
+        
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(50px);
+            border-radius: 15px;
+            padding: 25px;
+            width: 600px;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h1 {
+            color:black;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            color: black;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 2px solid #00c6ff;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: black;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s ease-in-out;
+        }
+
+        input:focus {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid #00c6ff;
+            box-shadow: 0px 0px 10px #00c6ff;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            color:black;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, #0072ff, #00c6ff);
+            box-shadow: 0px 0px 15px #00c6ff;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>
+            ငွေပေးချေမှု မှတ်ပုံတင်ခြင်း</h1>
+        <form id="userForm">
+            <label for="useremail">အသုံးပြုသူအီးမေးလ်:</label>
+            <input type="email" id="useremail" placeholder="example@gmail.com" required>
+
+            <label for="account">အကောင့်အမျိုးအစား:</label>
+            <input type="text" id="account" placeholder="စာရင်းသွင်းအကောင့်အမျိုးအစား။" required>
+
+            <label for="phone">ဖုန်းနံပါတ်:</label>
+            <input type="tel" id="phone" placeholder="သင့်ဖုန်းနံပါတ်ကို ထည့်ပါ။" required>
+
+            <label for="number">ပင်နံပါတ်:</label>
+            <input type="number" id="number" placeholder="သင်၏ kpay အကူးအပြောင်းတွင် နောက်ဆုံးနံပါတ် 5လုံး ကို ထည့်ပါ။" required>
+
+            <label for="money">ငွေပမာဏ:</label>
+            <input type="number" id="money" placeholder="သင်၏ပမာဏကိုထည့်ပါ။" required>
+
+            <label for="date">ငွေလွှဲသည့်ရက်စွဲ:</label>
+            <input type="date" id="date" required>
+
+            <button type="submit">မှတ်ပုံတင်မည်</button>
+        </form>
+    </div>
+
+</body>
+</html>

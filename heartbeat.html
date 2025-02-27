@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>HealthBridge Ayeyarwady</title>
+    <meta charset="utf-8">
+	<link rel="shortcut icon" type="x-icon" href="images/heart-1.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/heart.css">
+</head>
+<body>
+    <div class="container">
+        <h2>နှလုံးခုန်နှုန်း  အွန်လိုင်းကနေ တွက်ချက်ခြင်း</h2>
+        <div class="gender-selection">
+            <div class="gender-option" onclick="selectGender('male', this)">👨 အမျိုးသား</div>
+            <div class="gender-option" onclick="selectGender('female', this)">👩 အမျိုးသမီး</div>
+        </div>
+
+        <label>နားနေချိန်မှာ ရှိသည့် နှလုံးခုန်နှုန်း (တစ်မိနစ်လျှင် အကြိမ်ရေ (BPM) ) :</label>
+        <div class="bpm-slider">
+            <span>-</span>
+            <input type="range" id="bpm" min="40" max="180" value="60" oninput="updateBpmValue()">
+            <span id="bpmValue">60</span>
+            <span>+</span>
+        </div>
+
+        <label>နေ့စဉ် လှုပ်ရှားမှု ဘယ်လောက်ရှိပါသလဲ။</label>
+        <div class="exercise-options">
+            <label class="exercise-option" onclick="selectExercise(this, 'little')">
+                <input type="radio" name="exercise" value="little"> 🧍
+                <span>မပြင်းထန်</span>
+            </label>
+            <label class="exercise-option" onclick="selectExercise(this, 'light')">
+                <input type="radio" name="exercise" value="light"> 🚶
+                <span>အသင့်အတင့် ပြင်းထန်</span>
+            </label>
+            <label class="exercise-option" onclick="selectExercise(this, 'moderate')">
+                <input type="radio" name="exercise" value="moderate"> 🚴
+                <span>ပြင်းထန်</span>
+            </label>
+            <label class="exercise-option" onclick="selectExercise(this, 'intense')">
+                <input type="radio" name="exercise" value="intense"> 🏃
+                <span>အလွန်ပြင်းထန်</span>
+            </label>
+        </div>
+
+        <button class="check-btn" onclick="calculateHeartRateStatus()">နှလုံးခုန်စစ်ဆေးပါ</button>
+        <p id="result"></p>
+    </div>
+
+   <script src="js/heartbeat.js"></script>
+</body>
+</html>

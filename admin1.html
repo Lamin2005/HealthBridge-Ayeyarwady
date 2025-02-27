@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .approve-btn, .reject-btn {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .approve-btn {
+            background-color: #28a745;
+            color: white;
+        }
+        .approve-btn:hover {
+            background-color: #218838;
+        }
+        .reject-btn {
+            background-color: #dc3545;
+            color: white;
+        }
+        .reject-btn:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Admin Panel</h1>
+    <h2>Comments</h2>
+    <table id="commentsTable">
+        <thead>
+            <tr>
+                <th>User Name</th>
+                <th>Comment</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Comments will be displayed here -->
+        </tbody>
+    </table>
+
+    <script>
+        function displayComments() {
+            const comments = JSON.parse(localStorage.getItem("pendingComments") || "[]");
+            const tableBody = document.querySelector("#commentsTable tbody");
+            tableBody.innerHTML = "";
+
+            if (comments.length === 0) {
+                const row = document.createElement("tr");
+                row.innerHTML = `<td colspan="5">No comments available.</td>`;
+                tableBody.appendChild(row);
+                return;
+            }
+
+            comments.forEach((comment, index) => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${comment.name}</td>
+                    <td>${comment.text}</td>
+                    <td>${new Date(comment.date).toLocaleString()}</td>
+                    <td>${comment.status}</td>
+                    <td>
+                        <button class="approve-btn" onclick="approveComment(${index})">Approve</button>
+                        <button class="reject-btn" onclick="rejectComment(${index})">Reject</button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        function approveComment(index) {
+            const comments = JSON.parse(localStorage.getItem("pendingComments") || "[]");
+            comments[index].status = "approved";
+            localStorage.setItem("pendingComments", JSON.stringify(comments));
+            displayComments();
+            alert("Comment approved successfully!");
+        }
+
+        function rejectComment(index) {
+            const comments = JSON.parse(localStorage.getItem("pendingComments") || "[]");
+            comments.splice(index, 1); // Remove the rejected comment
+            localStorage.setItem("pendingComments", JSON.stringify(comments));
+            displayComments();
+            alert("Comment rejected and removed successfully!");
+        }
+
+        window.onload = displayComments;
+    </script>
+</body>
+</html>

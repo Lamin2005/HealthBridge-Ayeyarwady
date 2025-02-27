@@ -1,0 +1,105 @@
+
+.collapsible-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color:ghostwhite;
+  }
+  
+  .header-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+    padding-left: 5px;
+    border-left: 4px solid blue;
+  }
+  
+  .collapsible {
+    margin: 10px 0;
+  }
+  
+  .collapsible-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color:white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    color: #333;
+    text-align: left;
+  }
+
+  .collapsible-btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+  
+  .arrow {
+    transition: transform 0.3s ease;
+  }
+  
+  .collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding: 0 10px;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .collapsible-content p {
+    margin: 10px 0;
+  }
+
+  .collapsible .open{
+    border: none;
+  }
+  
+  .collapsible.open .arrow {
+    transform: rotate(180deg);
+  }
+  
+  .collapsible.open .collapsible-content {
+    max-height: 500px; /* Adjust as needed */
+  }
+
+  .confirmation-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 300px;
+}
+.confirmation-box p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+.btn1 {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    color: white;
+}
+.btn1-yes {
+    background-color: #28a745;
+}
+.btn1-no {
+    background-color: #dc3545;
+}
+  

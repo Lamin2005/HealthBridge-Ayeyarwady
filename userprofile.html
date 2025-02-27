@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HealthBridge Ayeyarwady</title>
+    <meta charset="utf-8">
+	<link rel="shortcut icon" type="x-icon" href="images/heart-1.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/userdataform.css">
+    <link rel="stylesheet" href="css/userprofile.css">
+    <script src="js/login.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <div class="brand">User Dashboard</div>
+    <button class="toggle-btn" id="toggleBtn">☰</button>
+</div>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+    <div class="profile-section">
+        <div class="profile-img" id="profileImage">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M12 12c2.67 0 8 1.34 8 4v2H4v-2c0-2.66 5.33-4 8-4zm0-2c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/>
+            </svg>
+        </div>
+        <div class="profile-info">
+            <div class="username" id="username" style="color: white; font-size: 18px;"></div>
+            <div class="user-email" id="useremail"></div>
+        </div>
+
+        <div class="upload-section">
+            <label class="upload-btn" for="fileInput">ပုံတင်မည်</label>
+            <input type="file" id="fileInput" accept="image/*">
+            <button class="reset-btn" id="resetBtn">ဖျက်မည်</button>
+        </div>
+    </div>
+
+    <nav class="nav-links">
+     
+       
+        <a href="userprofile.html" class="nav-item active"><i class="bi bi-heart-pulse"></i>ကျွန်ုပ်၏ ကျန်းမာရေး</a>
+        
+        <a href="userprofile6.html" class="nav-item"><i class="bi bi-question-circle"></i> 
+            အကူအညီ</a>
+        <a href="userprofile7.html" class="nav-item"><i class="bi bi-person-circle"></i> 
+            အချက်အလက်</a>
+        <a href="#logout" class="nav-item" id="signout"><i class="bi bi-door-open"></i>
+            အကောင့်ထွက်မည်</a>
+        <a href="index.html" class="nav-item"> <i class="bi bi-arrow-left"></i> 
+            မူလစာမျက်နှာသို့</a>
+    </nav>
+
+   
+</div>
+
+<!-- Main Content -->
+<div class="dashboard" id="dashboard">
+
+    <h1>Welcome to Your User Dashboard</h1>
+    <p >Here you can manage your settings and profile.</p>
+
+    <div class="cardmain">
+        <div class="card">
+            <div class="card-header">
+                <span class="card-title">ခန္ဓာကိုယ်ထုထည်ညွှန်းကိန်း (BMI) တွက်ချက်ခြင်း</span>
+                <span style="color: gray;margin-bottom: 30px;"><a href="userprofile1.html">မှတ်တမ်းများ ></a></span>
+            </div>
+            <div class="cardshow">
+                <div class="value" id="bmiValue">No result</div>
+                <img src="images/BMI_new.webp" alt="BMI Icon" class="icon">
+            </div>
+            <div class="card-footer" id="bmiDifference">No result</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <span class="card-title"> ကယ်လ်လိုရီ လိုအပ်ချက်ပမာဏ (BMR) တွက်ချက်ခြင်း</span>
+                <span style="color: gray;margin-bottom: 40px;"><a href="userprofile2.html">မှတ်တမ်းများ ></a></span>
+            </div>
+            <div  class="cardshow">
+                <div class="value" id="calorieValue">No result</div>
+                <img src="images/BMR_new.webp" alt="Calorie Icon" class="icon">
+            </div>
+            <div class="card-footer" id="calorieDifference">No result</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <span class="card-title">ပုံမှန်ကျန်းမာစွာရှိသင့်သည့် နှလုံးခုန်နှုန်း</span>
+                <span style="color: gray;margin-bottom: 40px;"><a href="userprofile3.html">မှတ်တမ်းများ ></a></span>
+            </div>
+            <div  class="cardshow">
+                <div class="value" id="heartRateValue">No result</div>
+                <img src="images/Heart-Health.webp" alt="Heart Icon" class="icon">
+            </div>
+            <div class="card-footer" id="heartRateDifference">No result</div>
+        </div>
+    </div>
+    
+</div>
+
+
+
+<script src="js/userprofile.js"></script>
+<script src="js/lan.js"></script>
+<script src="js/userdataform.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+.card-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.section-header h2 {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.section-header .view-more {
+  text-decoration: none;
+  color: #1177eb;
+  font-size: 0.9rem;
+  margin-left: 20px;
+  font-weight: bolder;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  border: 1px solid ghostwhite;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  margin-left: 25px;
+  max-width: 100px;
+  margin-bottom: 10px;
+ 
+  
+ 
+}
+
+.card p {
+  font-size: 1rem;
+  color: #555;
+  margin: 0;
+  font-weight: bolder;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .cards {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  
+  .card img {
+    margin-right: 25px;
+    max-width: 100px;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .section-header h2 {
+    font-size: 1.2rem;
+
+  }
+
+  .section-header .view-more {
+    font-size: 0.8rem;
+  }
+
+  .card img {
+    margin-right: 300px;
+    max-width: 100px;
+  }
+
+  .card p {
+    font-size: 1rem;
+    font-weight: bolder;
+  }
+}

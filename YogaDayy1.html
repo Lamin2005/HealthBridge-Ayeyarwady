@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>HealthBridge Ayeyarwady</title>
+    <meta charset="utf-8">
+	<link rel="shortcut icon" type="x-icon" href="images/heart-1.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+      body {
+        background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+        color: #333;
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+    
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+    
+      .workout-container {
+        width: 500px; /* Slightly wider for better layout */
+        background: white;
+        padding: 40px; /* More padding for better spacing */
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s ease;
+      }
+    
+    
+      .workout-video {
+        width: 70%;
+        height: 250px; /* Fill the container */
+        object-fit: fill;
+        border-radius: 12px;
+        transition: all 0.3s ease-in-out;
+        margin-left: 50px;
+      }
+      h1 {
+        font-size: 28px; /* Increased font size */
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: #333;
+      }
+    
+      #timer {
+        font-size: 32px; /* Larger timer text */
+        font-weight: 600;
+        color: #007bff;
+        margin-top: 20px;
+        transition: all 0.3s ease;
+      }
+
+      .arrow {
+        margin-right: 500px;
+        position:relative;
+        font-size: 24px;
+        color: #007bff;
+        border: none;
+        cursor: pointer;
+        transition: color 0.3s ease;
+      }
+
+    
+      button {
+        padding: 12px 25px; /* Larger padding */
+        margin: 10px;
+        border: none;
+        border-radius: 30px;
+        background: linear-gradient(145deg, #6a8dff, #3d56b7);
+        color: white;
+        font-size: 16px; /* Larger font size */
+        font-weight: bold;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 140px; /* Adjusted width */
+      }
+    
+      button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+    
+      button:active {
+        transform: translateY(1px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+    
+      .workout-info {
+        margin-top: 15px;
+      }
+    
+      .workout-info h1,
+      .workout-info p {
+        margin: 0;
+        font-size: 25px; /* Larger text for better readability */
+        color: #333;
+        font-weight: 500;
+      }
+      .workout-info h1{
+        font-weight: 600;
+        color: navy;
+            }
+      .workout-controls {
+        display: flex;
+        justify-content: space-between; /* Make sure Previous and Skip are side by side */
+        margin-top: 15px;
+      }
+    
+      .workout-controls button {
+        width: 48%; /* Reduced width for buttons */
+      }
+    
+      .workout-controls .skip-btn {
+        background-color: #f44336; /* Red for skip */
+      }
+    
+      .workout-controls .previous-btn {
+        background-color: #8bc34a; /* Green for previous */
+      }
+    
+      .workout-controls .pause-btn {
+        background-color: #ff9800; /* Orange for pause */
+        width: 100%; /* Full width for the pause button */
+        margin-top: 10px; /* Adds space between buttons */
+      }
+    
+      /* Custom Styling for Timer Transitions */
+      @keyframes countdown {
+        0% {
+          color: #007bff;
+        }
+        50% {
+          color: #ff9800;
+        }
+        100% {
+          color: #f44336;
+        }
+      }
+    
+      #timer {
+        animation: countdown 1.5s infinite;
+      }
+
+      #start-btn-frame h2 {
+  font-size: 24px;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #333;
+      }
+
+      #start-btn-frame button{
+        margin-left: 120px ;
+      }
+
+    </style>
+  
+  </head>
+  <body>
+
+    <div class="container">
+      <div id="start-btn-frame">
+        <h2>Get Ready to Begin Your Workout</h2> <!-- Title added here -->
+        <button id="start-btn">Start Workout</button>
+      </div>
+      
+      <div class="workout-container" style="display:none;">
+        
+        <div class="workout-animation">
+          <a href="d1frame_yoga.html" class="arrow">
+            <i class="fa fa-arrow-left"></i>
+          </a>
+          <video id="workout-video" class="workout-video" autoplay loop muted>
+            <source src="video/DoingBoxPistolSquat1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        
+        <div class="workout-info">
+          <h1 id="exercise-name">Box Pistol Squat</h1>
+          <p id="timer">00:30</p>
+          <div class="workout-controls">
+            <button id="previous-btn" class="previous-btn">Previous</button>
+            <button id="skip-btn" class="skip-btn">Skip</button>
+          </div>
+          <button id="pause-btn" class="pause-btn">Pause</button>
+        </div>
+        
+      </div>
+    </div>
+
+    <script>
+      const exercises = [
+        {
+          name: 'Doing seated back twist',
+          duration: 20,
+          rest: 10,
+          video: 'video/yoga1.mp4',
+          sound: 'sound/DoingSeatedBackTwist.mp3',
+          restSound: 'sound/RestTime.mp3'
+        },
+        {
+          name: 'Doing tree',
+          duration: 20,
+          rest: 10,
+          video: 'video/yoga2.mp4',
+          sound: 'sound/DoingTree.mp3',
+          restSound: 'sound/RestTime.mp3'
+        },
+        {
+          name: 'Doing downward dog',
+          duration: 20,
+          rest: 10,
+          video: 'video/yoga3.mp4',
+          sound: 'sound/DoingDownwardDog.mp3',
+          restSound: 'sound/RestTime.mp3'
+        },
+        {
+          name: 'Doing warrior',
+          duration: 20,
+          rest: 10,
+          video: 'video/yoga4.mp4',
+          sound: 'sound/DoingWarrior.mp3',
+          restSound: 'sound/RestTime.mp3'
+        },
+        {
+          name: 'Doing yoga with meditation',
+          duration: 20,
+          rest: 10,
+          video: 'video/yoga5.mp4',
+          sound: 'sound/DoingYogaWithMeditation.mp3',
+          restSound: 'sound/RestTime.mp3'
+        },
+        {
+          name: 'Doing King Warrior',
+          duration: 20,
+          rest: 10,
+          video: 'video/yoga6.mp4',
+          sound: 'sound/DoingKingWarrior.mp3',
+          restSound: 'sound/RestTime.mp3'
+        },
+        {
+          name: 'Doing Spine Twisting',
+          duration: 20,
+          rest: 10,
+          video: 'video/yoga7.mp4',
+          sound: 'sound/DoingSpineTwisting.mp3',
+          restSound: 'sound/RestTime.mp3'
+        },
+        {
+          name: 'Doing Cat',
+          duration: 20,
+          rest: 10,
+          video: 'video/yoga8.mp4',
+          sound: 'sound/DoingCat.mp3',
+          restSound: 'sound/RestTime.mp3'
+        },
+        {
+          name: 'Doing Warrior',
+          duration: 20,
+          rest: 10,
+          video: 'video/yoga9.mp4',
+          sound: 'sound/DoingWarrior.mp3',
+          restSound: 'sound/RestTime.mp3'
+        },
+        // Other exercises...
+      ];
+
+      let currentExerciseIndex = 0;
+      let timeRemaining = exercises[currentExerciseIndex].duration;
+      let restTimeRemaining = exercises[currentExerciseIndex].rest;
+      let isPaused = false;
+      let isResting = false;
+      let interval;
+
+      const timerElement = document.getElementById('timer');
+      const pauseButton = document.getElementById('pause-btn');
+      const exerciseNameElement = document.getElementById('exercise-name');
+      const workoutVideoElement = document.getElementById('workout-video');
+      const startBtnFrame = document.getElementById('start-btn-frame');
+      const startButton = document.getElementById('start-btn');
+
+      startButton.addEventListener('click', () => {
+          startBtnFrame.style.display = 'none';
+          document.querySelector('.workout-container').style.display = 'block';
+          loadExercise(currentExerciseIndex);
+      });
+
+      function startTimer() {
+        if (interval) clearInterval(interval);
+        interval = setInterval(() => {
+          if (!isPaused) {
+            if (isResting) {
+              restTimeRemaining--;
+              updateTimerDisplay(restTimeRemaining);
+              if (restTimeRemaining <= 0) endRest();
+            } else {
+              timeRemaining--;
+              updateTimerDisplay(timeRemaining);
+              if (timeRemaining <= 0) startRest();
+            }
+          }
+        }, 1000);
+      }
+
+      function updateTimerDisplay(time) {
+        const minutes = Math.floor(time / 60);
+        const seconds = time % 60;
+        timerElement.textContent = `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+      }
+
+      pauseButton.addEventListener('click', () => {
+        isPaused = !isPaused;
+        pauseButton.textContent = isPaused ? 'Resume' : 'Pause';
+      });
+
+      function startRest() {
+        isResting = true;
+        restTimeRemaining = exercises[currentExerciseIndex].rest;
+        exerciseNameElement.textContent = 'Rest';
+        workoutVideoElement.style.display = 'none';
+        updateTimerDisplay(restTimeRemaining);
+
+        const restSound = new Audio(exercises[currentExerciseIndex].restSound);
+        restSound.play();
+        startTimer();
+      }
+
+      function endRest() {
+        isResting = false;
+        nextExercise();
+      }
+
+      function loadExercise(index) {
+        if (interval) clearInterval(interval);
+
+        const exercise = exercises[index];
+        exerciseNameElement.textContent = exercise.name;
+        workoutVideoElement.src = exercise.video;
+        workoutVideoElement.style.display = 'block';
+
+        timeRemaining = exercise.duration;
+        restTimeRemaining = exercise.rest;
+        isPaused = false;
+        isResting = false;
+        pauseButton.textContent = 'Pause';
+
+        const readySound = new Audio(exercise.sound);
+        timerElement.textContent = 'Ready to go';
+        readySound.play();
+        setTimeout(() => {
+          updateTimerDisplay(timeRemaining);
+          startTimer();
+        }, 3000);
+      }
+
+      function nextExercise() {
+        if (currentExerciseIndex < exercises.length - 1) {
+          currentExerciseIndex++;
+          loadExercise(currentExerciseIndex);
+        } else {
+          completeWorkout();
+        }
+      }
+
+      function previousExercise() {
+        if (currentExerciseIndex > 0) {
+          currentExerciseIndex--;
+          loadExercise(currentExerciseIndex);
+        } else {
+          currentExerciseIndex = exercises.length - 1;
+          loadExercise(currentExerciseIndex);
+        }
+      }
+
+      function completeWorkout() {
+        if (interval) clearInterval(interval);
+        exerciseNameElement.textContent = 'Congratulations!';
+        timerElement.style.display = 'none';
+        pauseButton.style.display = 'none';
+        document.getElementById('previous-btn').style.display = 'none';
+        document.getElementById('skip-btn').style.display = 'none';
+        workoutVideoElement.style.display = 'none';
+
+        const completeSound = new Audio('sound/Congrat.mp3');
+        completeSound.play();
+
+        const completeButton = document.createElement('button');
+        completeButton.textContent = 'Complete';
+        completeButton.style.marginTop = '20px';
+        completeButton.addEventListener('click', handleComplete);
+
+        exerciseNameElement.parentNode.appendChild(completeButton);
+      }
+
+      function handleComplete(event) {
+  event.preventDefault();
+
+  const loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
+  const users = JSON.parse(localStorage.getItem('users')) || [];
+
+  if (loggedInUser && loggedInUser.id) {
+    const userIndex = users.findIndex(user => user.id === loggedInUser.id);
+    if (userIndex !== -1) {
+      users[userIndex].fullbody_fitness = true;
+      localStorage.setItem('users', JSON.stringify(users));
+    }
+  }
+
+  // Show alert box
+  alert('Congratulations! You have completed the workout.');
+
+  // Redirect to another page
+  window.location.href = 'YogaChooseDay2.html'; // Replace with your desired page URL
+}
+
+
+      document.getElementById('previous-btn').addEventListener('click', previousExercise);
+      document.getElementById('skip-btn').addEventListener('click', nextExercise);
+    </script>
+
+  </body>
+</html>

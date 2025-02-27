@@ -1,0 +1,39 @@
+.user-image{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.user-info{
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    border: 1px solid  #3498db;
+    padding: 10px 10px;
+    border-radius: 10px;
+    user-select: none;
+
+}
+
+.user-name{
+    cursor: pointer;
+}
+
+
+@media (max-width:760px) {
+    
+    .user-info{
+        max-width: 140px;       
+        margin-left: 0px;
+    }
+}
+
+
+@media (max-width:480) {
+    .user-info{
+        max-width: 140px; 
+        margin-left: 0px;      
+
+    }
+}

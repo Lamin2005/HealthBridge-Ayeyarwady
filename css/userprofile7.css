@@ -1,0 +1,168 @@
+     /* General Styles */
+    body{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: sans-serif;
+        background:url(../images/bg-risk-screener.jpg);
+        padding: 20px;
+        margin: 0;
+        text-align: center;
+        user-select: none;
+    }
+
+    /* Form Container */
+    .container {
+        max-width: 600px;
+        width: 90%;
+        margin: auto;
+        background:url(../images/bg-risk-screener.jpg);
+        padding: 10px;
+        border-radius: 8px;
+      
+        text-align: left;
+    }
+
+    /* Heading */
+    .form-title {
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    /* Form Labels */
+    label {
+        font-size: 16px;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    /* Form Inputs */
+    .input-group {
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    input {
+        width: 95%;
+        padding: 12px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        outline: none;
+        background: #fafafa;
+        user-select: none;
+    }
+
+    /* Eye Icon for Password Fields */
+    .eye-icon {
+        position: absolute;
+        right: 15px;
+        top: 70%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        font-size: 18px;
+        opacity: 0.6;
+    }
+
+    .eye-icon:hover {
+        opacity: 1;
+    }
+
+    /* Disabled Submit Button */
+    .submit-btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #aaa;
+        background: #e0e0e0;
+        border: none;
+        border-radius: 5px;
+        cursor: not-allowed;
+        margin-top: 10px;
+    }
+
+    .back-btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        font-weight: bold;
+        color: white;
+        background: #538fd8;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    .img {
+        width: 100%;
+        max-width: 600px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+        border-radius: 8px;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+.imgdiv {
+width: 200px;
+height: 100%;
+display: flex;
+align-items: center;
+gap: 15px;
+flex: 1; /* Ensures equal spacing */
+}
+
+.imgdiv img {
+width: 120px;
+height: 120px;
+border-radius: 50%;
+object-fit: cover;
+
+
+}
+
+.namediv {
+text-align: left;
+flex: 1; /* Allows name section to take available space */
+}
+
+@media (max-width: 768px) {
+.img {
+    flex-direction: column;
+    text-align: center;
+}
+
+.imgdiv {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.namediv {
+    text-align: center;
+}
+}
+
+.edit-btn {
+background-color: transparent;
+border: none;
+color: #007bff;
+font-size: 16px;
+display: flex;
+align-items: center;
+gap: 5px;
+cursor: pointer;
+
+}
+
+.edit-btn:hover {
+color: #0056b3;
+
+}

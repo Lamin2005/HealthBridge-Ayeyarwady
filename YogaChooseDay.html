@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>HealthBridge Ayeyarwady</title>
+    <meta charset="utf-8">
+	<link rel="shortcut icon" type="x-icon" href="images/heart-1.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        body {
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+        }
+
+        .title1{
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .title1 h2{
+            color : navy;
+        }
+
+        .exercise-list {
+            margin-top: 30px;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-content: flex-start; 
+        }
+
+        .day {
+            width: 200px;
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f8f9fa;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .day.active {
+            background: linear-gradient(135deg, #68affc, #81e0fa);
+            color: #fff;
+        }
+
+        .day-info{
+            width: 60%;
+            height: 100%;
+        }
+
+        .day-info h3 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .day-info p {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .start-btn {
+            background-color: #fff;
+            color: #0db37a;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .progress-circle {
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+        }
+
+        .rest-day-icon {
+            font-size: 24px;
+            color: #888;
+        }
+
+        #video-container {
+            max-width: 500px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+
+        .footer-section{
+            width: 100%;
+            background: #151515;
+        }
+
+    </style>
+
+    <script src="navscript.js"></script>
+  </head>
+  <body>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">HealthBridge<span style="color: blue;">Ayarwady<i class="fa fa-leaf" style="color: blue;"></i></span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="fa fa-bars"></span> Menu
+            </button>
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item "><a href="index.html" class="nav-link" data-key="home">Home</a></li>
+                    <li class="nav-item dropdown active">
+                        <a href="services.html" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-key="service">Services</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item active" href="old_program.html">လေ့ကျင့်ခန်းများ</a>
+                            <a class="dropdown-item" href="healthytools.html">ကျန်းမာရေးကိရိယာများ</a>
+                            <a class="dropdown-item" href="pricing.html">စိတ်အပန်းဖြေရန်</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="success-stories.html" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-key="MentalRelax">Mental Relax</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="meditation.html">Relax Songs</a>
+                            <a class="dropdown-item" href="motivate.html">Motivate Songs</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="success-stories.html" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-key="knowledge">Knowledge</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="healthys.html">ကျန်းမာရေးကဏ္ဍများ</a>
+                            <a class="dropdown-item" href="service2.html">ကျန်းမာရေးဆောင်းပါးများ</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link" data-key="contact">Contact</a></li>
+                    <li class="nav-item" id="nav-links" ></li>
+                </ul>
+            </div>
+        </div>
+</nav>
+    <!-- END nav -->
+		
+    <div class="title1">
+        <h2>Yoga Exercise</h2>
+    </div>
+    	<section id="training" class="section1">
+            <div class="exercise-list">
+                <div class="day active">
+                    <div class="day-info">
+                        <h3>Day 1</h3>
+                        <p>3 min</p>
+                    </div>
+                    <button class="start-btn" onclick="startWorkout()">Start</button>
+                    
+                </div>
+                <div class="day">
+                    <div class="day-info">
+                        <h3>Day 2</h3>
+                        <p>5 min</p>
+                    </div>
+                    <div class="progress-circle">🔒</div>
+                </div>
+                <div class="day">
+                    <div class="day-info">
+                        <h3>Day 3</h3>
+                        <p>7 min</p>
+                    </div>
+                    <div class="progress-circle">🔒</div>
+                </div>
+                <div class="day">
+                    <div class="day-info">
+                        <h3>Day 4</h3>
+                        <p>Rest Day!</p>
+                    </div>
+                    <div class="rest-day-icon">☕️</div>
+                </div>
+                <div class="day">
+                    <div class="day-info">
+                        <h3>Day 5</h3>
+                        <p>10 min</p>
+                    </div>
+                    <div class="progress-circle">🔒</div>
+                </div>
+                <div class="day">
+                    <div class="day-info">
+                        <h3>Day 6</h3>
+                        <p>13 min</p>
+                    </div>
+                    <div class="progress-circle">🔒</div>
+                </div>
+                <div class="day">
+                    <div class="day-info">
+                        <h3>Day 7</h3>
+                        <p>15 min</p>
+                    </div>
+                    <div class="progress-circle">🔒</div>
+                </div>
+                <div class="day">
+                    <div class="day-info">
+                        <h3>Day 8</h3>
+                        <p>Rest Day!</p>
+                    </div>
+                    <div class="rest-day-icon">☕️</div>
+                </div>
+                <div class="day">
+                    <div class="day-info">
+                        <h3>Day 9</h3>
+                        <p>20 min</p>
+                    </div>
+                    <div class="progress-circle">🔒</div>
+                </div>
+                <div class="day">
+                    <div class="day-info">
+                        <h3>Day 10</h3>
+                        <p>20 min</p>
+                    </div>
+                    <div class="progress-circle">🔒</div>
+                </div>
+                <div class="day">
+                    <div class="day-info">
+                        <h3>Day 11</h3>
+                        <p>Rest Day!</p>
+                    </div>
+                    <div class="rest-day-icon">☕️</div>
+                </div>
+                <div class="day">
+                    <div class="day-info">
+                        <h3>Day 12</h3>
+                        <p>20 min</p>
+                    </div>
+                    <div class="progress-circle">🔒</div>
+                </div>
+                <div class="day">
+                    <div class="day-info">
+                        <h3>Day 13</h3>
+                        <p>20 min</p>
+                    </div>
+                    <div class="progress-circle">🔒</div>
+                </div>
+                <div class="day">
+                    <div class="day-info">
+                        <h3>Day 14</h3>
+                        <p>Rest Day!</p>
+                    </div>
+                    <div class="rest-day-icon">☕️</div>
+                </div>
+                <div class="day">
+                    <div class="day-info">
+                        <h3>Day 15</h3>
+                        <p>20 min</p>
+                    </div>
+                    <div class="progress-circle">🔒</div>
+                </div>
+                <div class="day">
+                    <div class="day-info">
+                        <h3>Day 16</h3>
+                        <p>20 min</p>
+                    </div>
+                    <div class="progress-circle">🔒</div>
+                </div>
+                <div class="day">
+                    <div class="day-info">
+                        <h3>Day 17</h3>
+                        <p>Rest Day!</p>
+                    </div>
+                    <div class="rest-day-icon">☕️</div>
+                </div>
+                <div class="day">
+                    <div class="day-info">
+                        <h3>Day 18</h3>
+                        <p>20 min</p>
+                    </div>
+                    <div class="progress-circle">🔒</div>
+                </div>
+                <div class="day">
+                    <div class="day-info">
+                        <h3>Day 19</h3>
+                        <p>20 min</p>
+                    </div>
+                    <div class="progress-circle">🔒</div>
+                </div>
+                <div class="day">
+                    <div class="day-info">
+                        <h3>Day 20</h3>
+                        <p>Rest Day!</p>
+                    </div>
+                    <div class="rest-day-icon">☕️</div>
+                </div>
+                <div class="day">
+                    <div class="day-info">
+                        <h3>Day 21</h3>
+                        <p>20 min</p>
+                    </div>
+                    <div class="progress-circle">🔒</div>
+                </div>
+                <div class="day">
+                    <div class="day-info">
+                        <h3>Day 22</h3>
+                        <p>20 min</p>
+                    </div>
+                    <div class="progress-circle">🔒</div>
+                </div>
+                <div class="day">
+                    <div class="day-info">
+                        <h3>Day 23</h3>
+                        <p>Rest Day!</p>
+                    </div>
+                    <div class="rest-day-icon">☕️</div>
+                </div>
+                <div class="day">
+                    <div class="day-info">
+                        <h3>Day 24</h3>
+                        <p>20 min</p>
+                    </div>
+                    <div class="progress-circle">🔒</div>
+                </div>
+                <div class="day">
+                    <div class="day-info">
+                        <h3>Day 25</h3>
+                        <p>20 min</p>
+                    </div>
+                    <div class="progress-circle">🔒</div>
+                </div>
+                <div class="day">
+                    <div class="day-info">
+                        <h3>Day 26</h3>
+                        <p>Rest Day!</p>
+                    </div>
+                    <div class="rest-day-icon">☕️</div>
+                </div>
+                <div class="day">
+                    <div class="day-info">
+                        <h3>Day 27</h3>
+                        <p>20 min</p>
+                    </div>
+                    <div class="progress-circle">🔒</div>
+                </div>
+                <div class="day">
+                    <div class="day-info">
+                        <h3>Day 28</h3>
+                        <p>20 min</p>
+                    </div>
+                    <div class="progress-circle">🔒</div>
+                </div>
+                <div class="day">
+                    <div class="day-info">
+                        <h3>Day 29</h3>
+                        <p>Rest Day!</p>
+                    </div>
+                    <div class="rest-day-icon">☕️</div>
+                </div>
+                <div class="day">
+                    <div class="day-info">
+                        <h3>Day 30</h3>
+                        <p>20 min</p>
+                    </div>
+                    <div class="progress-circle">🔒</div>
+                </div>
+            </div>
+        
+        </section>
+
+    
+
+
+    
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+  <script src="js/jquery.timepicker.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="js/google-map.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/lan.js"></script>
+
+  <script>
+    function startWorkout() {
+        window.location.href = 'd1frame_yoga.html'; // Replace 'doworkout2.html' with the actual URL of the next page
+    }
+</script>
+  </body>
+</html>

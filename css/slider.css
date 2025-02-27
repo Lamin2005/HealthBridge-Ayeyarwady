@@ -1,0 +1,118 @@
+
+
+		
+.slider-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    overflow: hidden;
+    position: relative;
+    
+    border-radius: 10px;
+  }
+  
+  .slider {
+    display: flex;
+    gap: 15px;
+    transition: transform 0.5s ease-in-out;
+    padding: 40px;
+    background-color:ghostwhite ;
+  }
+  
+  .slide {
+    min-width: calc(33.33% - 15px);
+    height: 250px; /* Set height to 280px */
+    box-sizing: border-box;
+    background: #eaf6ff ;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align items from the top */
+    padding: 15px;
+    text-align: left;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+  }
+  
+  .slide:hover {
+    transform: scale(1.05);
+  }
+  
+  .commenter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    text-align: center;
+    position: relative;
+  }
+  
+  .commenter img {
+    bottom: 58px;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .commenter-info {
+    margin-top: 5px;
+    font-size: 1rem;
+    color: #333;
+    font-weight: bolder;
+  }
+  
+  .commenter-info span {
+    display: block;
+    color: black;
+  }
+  
+  .comment {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 10px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    margin-bottom: auto; /* Push the comment to the top */
+    font-style: italic;
+    text-align: center;
+  }
+  
+  .navigation {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+  }
+  
+  .nav-btn {
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 18px;
+    transition: background 0.3s;
+  }
+  
+  .nav-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+  }
+  
+  @media (max-width: 768px) {
+    .slide {
+      min-width: calc(50% - 15px);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .slide {
+      min-width: 100%;
+    }
+  }
+  
+  

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMI Calculator</title>
+  <style>
+    /* styles.css */
+body {
+  font-family: Arial, sans-serif;
+  background:url(images/bg-risk-screener.jpg);
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.bmi-calculator {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 1.5rem;
+  color: #0077cc;
+  margin: 0;
+}
+
+.header p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.gender-selection {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  background: #f2f8fc;
+  border-radius: 5px;
+}
+
+.gender-selection label {
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.gender-selection input {
+  display: none;
+}
+
+.gender-selection span {
+  display: inline-block;
+  padding: 8px 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: white;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.gender-selection input:checked + span {
+  background: #0077cc;
+  color: white;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.form-group input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.btn {
+  background: #0077cc;
+  color: white;
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background: #005fa3;
+}
+
+  </style>
+</head>
+<body>
+  <div class="bmi-calculator">
+    <header class="header" style="background-color:  #f2f8fc;padding: 3px;">
+      <h1> <img style="width: 60px;height: 60px;" src="images/BMI_new.webp" alt="BMI Logo"> <br>BMI Calculator</h1>
+      <p>BMI တွက်ချက်ခြင်း ကို အွန်လိုင်းကနေ အချိန်ခဏပေးပြီး အဖြေထုတ်နိုင်ပါပြီ</p>
+    </header>
+
+    <form class="form">
+      <div class="gender-selection">
+        <label>
+          <input type="radio" name="gender" value="male" checked>
+          <span>👨 အမျိုးသား</span>
+        </label>
+        <label>
+          <input type="radio" name="gender" value="female">
+          <span>👩 အမျိုးသမီး</span>
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label for="age">အသက်အရွယ် (years)</label>
+        <input type="number" id="age"  placeholder="eg.25">
+      </div>
+
+      <div class="form-group">
+        <label for="height">အရပ်အမြင့် (cm)</label>
+        <input type="number" id="height" placeholder="eg.170">
+      </div>
+
+      <div class="form-group">
+        <label for="weight">ကိုယ်အလေးချိန် (kg)</label>
+        <input type="number" id="weight" placeholder="eg.60">
+      </div>
+
+      <button type="submit" class="btn">တွက်ချက်ပါ</button>
+    </form>
+  </div>
+
+  <script>
+    // Select form and input elements
+const form = document.querySelector('.form');
+const ageInput = document.getElementById('age');
+const heightInput = document.getElementById('height');
+const weightInput = document.getElementById('weight');
+
+// Listen for form submission
+form.addEventListener('submit', function (event) {
+  event.preventDefault(); // Prevent form from reloading the page
+
+  // Get user inputs
+  const age = parseInt(ageInput.value);
+  const height = parseFloat(heightInput.value) / 100; // Convert cm to meters
+  const weight = parseFloat(weightInput.value);
+
+  let loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
+  if (!loggedInUser || !loggedInUser.id) {
+      alert("No logged-in user found!");
+      return;
+  }
+
+  // Validate inputs
+  if (isNaN(age) || isNaN(height) || isNaN(weight) || age <= 0 || height <= 0 || weight <= 0) {
+    alert('Please enter valid inputs for all fields.');
+    return;
+  }
+
+  // Calculate BMI
+  const bmi = weight / (height * height);
+
+  
+  let userId = loggedInUser.id; // Get user ID
+
+  // Get previous BMI records from local storage
+  let bmiRecords = JSON.parse(localStorage.getItem("bmi")) || [];
+
+  // Add new BMI record
+  let newRecord = {
+      id: userId,
+      bmi: bmi,
+      date: new Date().toLocaleString() // Optional: Add timestamp
+  };
+  
+  bmiRecords.push(newRecord); // Append new record
+
+  // Save updated records back to local storage
+  localStorage.setItem("bmi", JSON.stringify(bmiRecords));
+
+  // Determine BMI category
+  let category = '';
+  if (bmi < 18.5) {
+    category = 'Underweight';
+  } else if (bmi >= 18.5 && bmi < 24.9) {
+    category = 'Normal weight';
+  } else if (bmi >= 25 && bmi < 29.9) {
+    category = 'Overweight';
+  } else {
+    category = 'Obesity';
+  }
+
+  // Display result
+  alert(`Your BMI is ${bmi.toFixed(2)}, which falls under the category: ${category}`);
+  window.location.href = "healthytools.html";
+});
+
+  </script>
+
+</body>
+</html>

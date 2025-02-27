@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer for Song</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+           
+        }
+
+        .timer-container {
+            text-align: center;
+            z-index: 2;
+            padding: 30px;
+            width: 420px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        #timer-message {
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        #timer {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 20px 0;
+            color:rgb(247, 247, 247);
+            text-shadow: 0px 0px 10px rgba(70, 53, 231, 0.8);
+        }
+
+        input[type="number"] {
+            padding: 12px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 12px;
+            width: 90px;
+            text-align: center;
+            margin: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            font-weight: bold;
+            outline: none;
+            box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.3);
+            transition: 0.3s;
+        }
+
+        input[type="number"]::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            color: #fff;
+            background: linear-gradient(135deg, #3a2cf1, #573dee);
+            transition: 0.3s;
+            box-shadow: 0px 4px 15px rgba(78, 75, 252, 0.4);
+            margin: 8px;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #3a2cf1, #573dee);
+            box-shadow: 0px 4px 20px rgba(78, 75, 252, 0.4);
+            transform: scale(1.05);
+        }
+
+        #audio-player {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="timer-container">
+        <h1 id="song-title">Timer for: Song Name</h1>
+        <p id="timer-message">Set a timer for your music!</p>
+
+        <div id="time-inputs">
+            <input type="number" id="minutes" placeholder="Minutes" min="0">
+            <input type="number" id="seconds" placeholder="Seconds" min="0">
+            <button onclick="startTimer()">Start Timer</button>
+        </div>
+
+        <div id="timer-container" class="hidden">
+            <div id="timer">00:00</div>
+            <button onclick="restartTimer()">Restart</button>
+            <button onclick="stopMusic()" id="stop-btn">Stop</button>
+            <button onclick="playMusic()" id="play-btn" class="hidden">Play</button>
+            <div>
+                <a href="meditation.html"><button>Choose Song</button></a>
+            </div>
+        </div>
+
+        <audio id="audio-player" controls class="hidden"></audio>
+    </div>
+
+    <script>
+        // Get the song title, src, and img from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const songTitle = urlParams.get('song');
+        const songSrc = urlParams.get('src');
+        const songImg = urlParams.get('img');
+    
+        // Set the song title in the page
+        document.getElementById("song-title").textContent = `${decodeURIComponent(songTitle)}`;
+    
+        // Set the audio player's src
+        const audioPlayer = document.getElementById("audio-player");
+        audioPlayer.src = songSrc;
+    
+        // Set the background image
+        document.body.style.backgroundImage = `url(${decodeURIComponent(songImg)})`;
+    
+        // Timer logic
+        let countdownInterval;
+        let totalSeconds;
+        let initialMinutes;
+        let initialSeconds;
+        let isPlaying = false;  // Variable to track if the music is playing or paused
+        let timeLeft = 0;  // To store the remaining time for the timer when paused
+
+        function startTimer() {
+            // Clear any existing timer
+            clearInterval(countdownInterval);
+    
+            // Get input values
+            initialMinutes = parseInt(document.getElementById("minutes").value) || 0;
+            initialSeconds = parseInt(document.getElementById("seconds").value) || 0;
+            totalSeconds = initialMinutes * 60 + initialSeconds;
+    
+            if (totalSeconds <= 0) {
+                alert("Please set a valid timer!");
+                return;
+            }
+    
+            // Hide the input fields and show the restart/stop buttons
+            document.getElementById("time-inputs").classList.add("hidden");
+            document.getElementById("timer-container").classList.remove("hidden");
+    
+            // Hide the "Set a timer for your music!" message
+            document.getElementById("timer-message").classList.add("hidden");
+    
+            // Play the song when the timer starts
+            audioPlayer.play();
+            audioPlayer.classList.remove("hidden");
+            isPlaying = true;
+    
+            // Update the timer display every second
+            countdownInterval = setInterval(() => {
+                const displayMinutes = Math.floor(totalSeconds / 60);
+                const displaySeconds = totalSeconds % 60;
+    
+                document.getElementById("timer").textContent = 
+                    `${displayMinutes.toString().padStart(2, '0')}:${displaySeconds.toString().padStart(2, '0')}`;
+    
+                if (totalSeconds === 0) {
+                    clearInterval(countdownInterval);
+                    audioPlayer.pause();  // Stop the song when time is up
+                    window.location.href = "meditation.html";  // Redirect to m_test.html
+                }
+    
+                totalSeconds--;
+            }, 1000);
+        }
+    
+        function restartTimer() {
+            // Restart the timer to the original values
+            totalSeconds = initialMinutes * 60 + initialSeconds;
+            document.getElementById("minutes").value = initialMinutes;
+            document.getElementById("seconds").value = initialSeconds;
+            document.getElementById("timer").textContent = "00:00"; // Reset display to 00:00
+            
+            // Restart the music as well
+            audioPlayer.currentTime = 0;  // Reset music to the beginning
+            audioPlayer.play();  // Play the music from the start
+            isPlaying = true;  // Set music state to playing
+            
+            // Start the timer again
+            startTimer();  // Call the startTimer function to start from the original time
+        }
+    
+        function stopMusic() {
+            // Stop the music and the timer
+            clearInterval(countdownInterval);
+            timeLeft = totalSeconds;  // Store remaining time when stopped
+            audioPlayer.pause();
+            document.getElementById("stop-btn").classList.add("hidden");
+            document.getElementById("play-btn").classList.remove("hidden");
+            isPlaying = false;  // Mark the music as paused
+        }
+
+        function playMusic() {
+            // Resume the music and timer from where they left off
+            audioPlayer.play();
+            document.getElementById("play-btn").classList.add("hidden");
+            document.getElementById("stop-btn").classList.remove("hidden");
+            isPlaying = true;  // Mark the music as playing
+    
+            // Resume the countdown from the paused time
+            countdownInterval = setInterval(() => {
+                const displayMinutes = Math.floor(timeLeft / 60);
+                const displaySeconds = timeLeft % 60;
+    
+                document.getElementById("timer").textContent = 
+                    `${displayMinutes.toString().padStart(2, '0')}:${displaySeconds.toString().padStart(2, '0')}`;
+    
+                if (timeLeft === 0) {
+                    clearInterval(countdownInterval);
+                    audioPlayer.pause();  // Stop the song when time is up
+                    window.location.href = "meditation.html";
+                }
+    
+                timeLeft--;
+            }, 1000);
+        }
+    
+        function stopTimer() {
+            // Stop the timer and pause the song
+            clearInterval(countdownInterval);
+            document.getElementById("timer").textContent = "00:00";
+            audioPlayer.pause();  // Pause the song
+        }
+    </script>
+</body>
+</html>

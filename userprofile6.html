@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HealthBridge Ayeyarwady</title>
+    <meta charset="utf-8">
+	<link rel="shortcut icon" type="x-icon" href="images/heart-1.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/userdataform.css">
+    <link rel="stylesheet" href="css/userprofile.css">
+    <link rel="stylesheet" href="css/faq.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <script src="js/login.js"></script>
+    <style>
+        .arrow{
+            background-color: white;
+        }
+
+        .faq{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            margin-top: 3rem;
+    }
+    </style>
+    
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <div class="brand">User Dashboard</div>
+    <button class="toggle-btn" id="toggleBtn">☰</button>
+</div>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+    <div class="profile-section">
+        <div class="profile-img" id="profileImage">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M12 12c2.67 0 8 1.34 8 4v2H4v-2c0-2.66 5.33-4 8-4zm0-2c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/>
+            </svg>
+        </div>
+        <div class="profile-info">
+            <div class="username" id="username" style="color: white; font-size: 18px;"></div>
+            <div class="user-email" id="useremail"></div>
+        </div>
+
+        <div class="upload-section">
+            <label class="upload-btn" for="fileInput">ပုံတင်မည်</label>
+            <input type="file" id="fileInput" accept="image/*">
+            <button class="reset-btn" id="resetBtn">ဖျက်မည်</button>
+        </div>
+    </div>
+
+    <nav class="nav-links">
+     
+        <a href="userprofile.html" class="nav-item "><i class="bi bi-heart-pulse"></i>ကျွန်ုပ်၏ ကျန်းမာရေး</a>
+          
+        <a href="userprofile6.html" class="nav-item active"><i class="bi bi-question-circle"></i> 
+            အကူအညီ</a>
+        <a href="userprofile7.html" class="nav-item"><i class="bi bi-person-circle"></i> 
+            အချက်အလက်</a>
+        <a href="#logout" class="nav-item" id="signout"><i class="bi bi-door-open"></i>
+            အကောင့်ထွက်မည်</a>
+        <a href="index.html" class="nav-item"> <i class="bi bi-arrow-left"></i> 
+            မူလစာမျက်နှာသို့</a>
+    </nav>
+
+   
+</div>
+
+<!-- Main Content -->
+<div class="dashboard" id="dashboard">
+
+    <h1>Welcome to Your User Dashboard</h1>
+    <p >Here you can manage your settings and profile.</p>
+
+    <div class="faq">
+        <h2>အကူအညီ</h2> <!-- Heading outside the container -->
+    
+        <div class="container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    HealthBridge Ayeyarwady ဆိုတာဘာလဲ?
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    အကြောင်းအရာအကောင်အထည်ဖော်ချက်ပါ။
+                    အကြောင်းအရာအကောင်အထည်ဖော်ချက်ပါ။
+                    အကြောင်းအရာအကောင်အထည်ဖော်ချက်ပါ။
+                    အကြောင်းအရာအကောင်အထည်ဖော်ချက်ပါ။
+                    အကြောင်းအရာအကောင်အထည်ဖော်ချက်ပါ။
+                    အကြောင်းအရာအကောင်အထည်ဖော်ချက်ပါ။
+                    အကြောင်းအရာအကောင်အထည်ဖော်ချက်ပါ။
+                    အကြောင်းအရာအကောင်အထည်ဖော်ချက်ပါ။
+                    အကြောင်းအရာအကောင်အထည်ဖော်ချက်ပါ။
+                </div>
+            </div>
+    
+            <div class="faq-item">
+                <div class="faq-question">
+                    ဘာကြောင့် အကောင့်ဝင်ရောက်သင့်တာလဲ
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    ကျွန်ုပ်တို့ ကျင့်သုံးမည့်ဖြေရှင်းနည်းများ မေ့မရပါ။
+                </div>
+            </div>
+    
+            <div class="faq-item">
+                <div class="faq-question">
+                    HealthBridge Ayeyarwady သည် အခမဲ့ ဖြစ်ပါသလား။
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    ကျွန်ုပ်တို့၏ ကိုယ်ပိုင်ဖြေရှင်းနည်းများကို စူးစိုက်ပါ။
+                </div>
+            </div>
+    
+            <div class="faq-item">
+                <div class="faq-question">
+                    ကျွန်ုပ်မှာ ကျန်းမာရေး ပြဿနာရှိပါတယ်။ ဘယ်လိုများ မေးရမလဲ။
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    ကျွန်ုပ်တို့၏ အကောင်အထည်ဖော်မှုများကို ဖော်ပြပါ။
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    ကျွန်ုပ်၏ ကိုယ်ရေးအချက်အလက်များ ပေါက်ကြားမည်ကို စိုးရိမ်ပါသည်။
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    ကျွန်ုပ်တို့၏ အကောင်အထည်ဖော်မှုများကို ဖော်ပြပါ။
+                </div>
+            </div>
+
+           
+        </div>
+    </div>
+   
+  
+</div>
+
+
+<script src="js/faq.js"></script>
+<script src="js/userprofile.js"></script>
+<script src="js/lan.js"></script>
+<script src="js/userdataform.js"></script>
+
+</body>
+</html>

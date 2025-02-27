@@ -1,0 +1,58 @@
+
+table {
+    width: 80%;
+   
+    border-collapse: collapse;
+}
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+th {
+    background-color: #007bff;
+    color: white;
+}
+.back-btn {
+    width: 150px;
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+}
+.back-btn:hover {
+    background-color: #0056b3;
+}
+
+.history2{
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    
+}
+
+h2{
+    font-size: 25px;
+    margin-bottom: 2rem;
+}
+
+
+@media (max-width: 768px) {
+
+    .history2{
+        margin-top: 4rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        
+    }
+
+    table {
+        width: 100%;
+    }
+}

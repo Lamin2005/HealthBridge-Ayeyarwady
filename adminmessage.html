@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<!-- My CSS -->
+	<link rel="stylesheet" href="css/admin.css">
+
+	<title>AdminHub</title>
+	<style>
+		
+	</style>
+</head>
+<body>
+
+
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="#" class="brand">
+			<i class='bx bxs-smile'></i>
+			<span class="text">AdminPannel</span>
+		</a>
+		<ul class="side-menu top">
+			<li>
+				<a href="admin.html">
+					<i class='bx bxs-dashboard' ></i>
+					<span class="text">Dashboard</span>
+				</a>
+			</li>
+			<li>
+				<a href="adminmembers.html">
+					<i class='bx bxs-group' ></i>
+					
+					<span class="text">Memebers</span>
+				</a>
+			</li>
+			<li class="active"> 
+				<a href="adminmessage.html">
+					<i class='bx bxs-message-dots' ></i>
+					<span class="text">Message</span>
+				</a>
+			</li>
+			
+		</ul>
+		<ul class="side-menu">
+			
+			<li>
+				<a href="index.html" class="logout">
+					<i class='bx bxs-log-out-circle' ></i>
+					<span class="text">Logout</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+	<!-- SIDEBAR -->
+
+
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu' ></i>
+			
+			
+			<a href="adminmessage.html" class="notification">
+				<i class='bx bxs-bell' ></i>
+				<span class="num" id="pendingCount">0</span>
+			</a>
+			
+		</nav>
+		<!-- NAVBAR -->
+
+		<!-- MAIN -->
+		<main>
+			<div class="head-title">
+				<div class="left">
+					<h1>Message</h1>
+					<ul class="breadcrumb">
+						<li>
+							<a href="adminmembers.html">Members</a>
+						</li>
+						<li><i class='bx bx-chevron-right' ></i></li>
+						<li>
+							<a class="active" href="adminmessage.html">Message</a>
+						</li>
+					</ul>
+				</div>
+				
+			</div>
+
+		
+
+			<div class="table-data">
+				<div class="order">
+					<div class="head">
+						<h3>Recent Message</h3>
+					</div>
+					<table>
+						<thead>
+							<tr>
+								<th>User</th>
+                                <th>Date</th>
+								<th>Description</th>
+								<th>Status</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody id="userTable">
+							
+						</tbody>
+					</table>
+				</div>
+				
+			</div>
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- CONTENT -->
+	
+
+	<script src="js/admin.js"></script>
+	<script>
+		
+
+function displayComments() {
+    const comments = JSON.parse(localStorage.getItem("pendingComments") || "[]");
+    const tableBody = document.querySelector("#userTable");
+    tableBody.innerHTML = "";
+    const userTable = document.getElementById('userTable');
+
+    // Check if there is data to display
+    if (comments.length === 0) {
+        userTable.innerHTML = `<tr><td colspan="5">No recent orders found</td></tr>`;
+        return;
+    }
+
+    comments.forEach((comment, index) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+           
+            <td>
+                <img src="${comment.image}">
+                <p>${comment.name}</p>
+            </td>
+            <td>${new Date(comment.date).toLocaleString()}</td>
+            <td>${comment.text}</td>
+            <td>${comment.status}</td>
+            <td>
+                <button class="approve-btn" onclick="approveComment(${index})">Approve</button>
+                <button class="reject-btn" onclick="rejectComment(${index})">Reject</button>
+            </td>
+        `;
+        tableBody.appendChild(row);
+    });
+}
+
+function approveComment(index) {
+    const comments = JSON.parse(localStorage.getItem("pendingComments") || "[]");
+    comments[index].status = "approved";
+    localStorage.setItem("pendingComments", JSON.stringify(comments));
+    displayComments();
+    alert("Comment approved successfully!");
+}
+
+function rejectComment(index) {
+    const comments = JSON.parse(localStorage.getItem("pendingComments") || "[]");
+    comments.splice(index, 1); // Remove the rejected comment
+    localStorage.setItem("pendingComments", JSON.stringify(comments));
+    displayComments();
+    alert("Comment rejected and removed successfully!");
+}
+
+window.onload = displayComments;
+
+	</script>
+	<script>
+		
+		function countPendingMessage() {
+        // Retrieve payment data from localStorage
+        let messages = JSON.parse(localStorage.getItem("pendingComments")) || [];
+    
+        // Filter and count payments where status is not "approved"
+        let pendingCount = messages.filter(message => message.status !== "approved").length;
+    
+        // Update the HTML
+        document.getElementById("pendingCount").textContent = pendingCount;
+    }
+    
+    // Run the function when the page loads
+    document.addEventListener("DOMContentLoaded", countPendingMessage);
+    
+      
+	</script>
+	
+</body>
+</html>

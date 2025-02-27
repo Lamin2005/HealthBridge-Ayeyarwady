@@ -1,0 +1,161 @@
+       /* General body styling */
+       body {
+        background-color: black; /* Dark background for the entire page */
+        color: #e0e0e0; /* Light text color for readability */
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .titleex{
+        text-align: center;
+        color: navy;
+    }
+    .gender-filter ,.sport-filter{
+        color: navy;
+    }
+    
+    /* Section styling */
+    .section1 {
+        background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+        padding-bottom: 100px;
+        padding-top: 50px;
+    }
+    
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    /* Title styling */
+    .title {
+        color:  #f36100; /* Golden yellow for section titles */
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 2.5em;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow for better readability */
+    }
+    
+    /* Filters styling */
+    label {
+        display: block;
+        margin: 15px 0;
+        color:  black; /* Golden yellow */
+        font-size: 1.2em;
+    }
+    
+    select {
+        padding: 12px;
+        border: 2px solid  #1089ff;
+        border-radius: 6px;
+        background: linear-gradient(135deg, #68affc, #81e0fa);
+        color: navy;
+        font-size: 16px;
+        margin-bottom: 30px;
+        transition: background 0.3s ease, border-color 0.5s ease;
+    }
+    .section_main{
+        display: flex;
+        
+        align-items: center;
+    }
+    .s{
+        margin-left: 40px;
+    }
+    
+    select:hover {
+        background: linear-gradient(135deg,  #81e0fa,  #68affc);
+        border-color: #1089ff; /* Change border color on hover */
+    }
+    
+    /* Plan card styling */
+    .event-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+    
+    .plan-card {
+        background:#f8f9fa;
+        border: 1px solid #1381f7;
+        border-radius: 12px;
+        box-shadow: 0 3px 12px  #1f7adc;
+        padding: 25px;
+        margin: 10px;
+        flex: 1 1 calc(33.333% - 20px); /* Responsive card size */
+        transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        text-align: center; /* Center text in card */
+    }
+    
+    /* Hover effect for cards */
+    .plan-card:hover {
+        transform: translateY(-15px); /* Lift the card higher */
+        box-shadow: 0 12px 24px ; /* Stronger shadow */
+    }
+    
+    /* Card content styling */
+    .plan-card h3 {
+        color: navy; /* Gold color for titles */
+        font-size: 1.8em;
+        margin-bottom: 15px;
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+    
+    .plan-card p {
+        color: navy; /* Light text color */
+        font-size: 1.1em;
+        margin-bottom: 25px;
+        line-height: 1.6; /* Line height for better readability */
+    }
+    
+    /* Button styling */
+    .deal-btn {
+        background: linear-gradient(135deg, #68affc, #81e0fa);
+        color: navy;
+        border: none;
+        padding: 15px 25px;
+        border-radius: 6px;
+        font-size: 1.2em;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.5s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .deal-btn:hover {
+        background: linear-gradient(135deg,  #81e0fa,  #68affc);
+        transform: scale(1.05); /* Slightly enlarge the button */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Add shadow on hover */
+    }
+    
+    .deal-btn::after {
+        content: '';position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .deal-btn:hover::after {
+        opacity: 1;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .plan-card {
+            flex: 1 1 calc(50% - 20px); /* Adjust card size for tablets */
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .plan-card {
+            flex: 1 1 100%; /* Full width for mobile devices */
+        }
+    }

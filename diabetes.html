@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HealthBridge Ayeyarwady</title>
+    <meta charset="utf-8">
+	<link rel="shortcut icon" type="x-icon" href="images/heart-1.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background:url(images/bg-risk-screener.jpg);
+            background-size: cover;
+        }
+
+        
+
+
+        .containerquizz {
+           border-radius: 12px;
+           padding: 30px;
+           width: 90%;
+           height: 500px;
+           max-width: 600px;
+           display: flex;
+           flex-direction: column;
+           justify-content: space-between; /* Space between options and buttons */
+        }
+
+        form {
+          display: flex;
+          flex-direction: column;
+          flex-grow: 1; /* Allow form to take remaining space */
+          gap: 20px;
+        }
+
+        .question {
+         display: none;
+         flex-grow: 1; /* Make the question area fill available vertical space */
+        }
+
+        .question.active {
+         display: flex;
+         flex-direction: column;
+         justify-content: space-between; /* Space between question and options */
+         width: 100%;
+        }
+
+        .buttons {
+         display: flex;
+         justify-content: flex-end; /* Align buttons to the right */
+         gap: 15px; /* Add spacing between buttons */
+         margin-top: auto; /* Push buttons to the bottom of the container */
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+       .question p {
+            font-size: 18px;
+            font-weight: bold;
+            color:black;
+            margin-bottom: 10px;
+        }
+
+        .option {
+            height: 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            transition:  0.3s 0.2s;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 17px;
+        }
+
+        .option:hover {
+            border-color:#0056b3;
+        }
+
+        .option input {
+            width: 18px;
+            height: 18px;
+            accent-color: #007bff;
+            margin-left: 10px;
+            transform: scale(1.2);
+           
+        }
+
+        input[type="radio"]:hover {
+            border-color:blue; /* Adjust the border size and color */
+            cursor: pointer; /* Change cursor to pointer on hover */
+        }
+
+
+
+        button {
+            padding: 10px 20px;
+            font-size: 14px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            
+        }
+
+        .prev-btn {
+            background-color: white;
+            color: #333;
+        }
+
+        .prev-btn:hover {
+            background-color: #c8c8c8;
+        }
+
+        .next-btn {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .next-btn:hover {
+            background-color: #0056b3;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="containerquizz">
+       
+        <form id="quizForm">
+            <!-- Start Page -->
+            <div class="question active" id="startPage">
+                <p >မင်္ဂလာပါ။ ဆီးချိုရောဂါရဲ့ လက္ခဏာတွေ နဲ့ ဖြစ်နိုင်ခြေရှိတဲ့အခြေအနေတွေကို သိရှိထားတာက    ဆီးချိုရောဂါ ပြင်းပြင်းထန်ထန် ခံစားရနိုင်တဲ့အလားအလာကို ကာကွယ်နိုင်မယ့် အကောင်းဆုံးသော နည်းလမ်းပါ။</p>
+                <p style="margin-top: 20px;border: 1px solid black;padding: 10px;font-size: 16px;color:  #333;font-weight: lighter;border-radius: 10px;margin-bottom: 15px;">
+                    ဆီးချိုဖြစ်နိုင်ခြေရှိလားဆိုတာကို သိနိုင်ဖို့ ဒီမေးခွန်းလေးတွေကို ဖြေကြည့်လိုက်ပါ။ ကျွန်ုပ်တို့အနေဖြင့် ပိုမိုကျန်းမာစေမယ့် ရွေးချယ်ကို လုပ်ဆောင်နိုင်စေဖို့နဲ့ အသက်ရှည် ကျန်းမာစေဖို့ထောက်ကူပေးနိုင်မယ့် ကျန်းမာရေးဆိုင်ရာ ဗဟုသုတ အချက်အလက်တွေကို ထောက်ပံ့ပေးသွားပါမယ်။
+                </p>
+                <label class="option">စတင်ပါ။ <input type="radio" name="startTest" value="start" required></label>
+                <div class="buttons">
+                    <button class="prev-btn" type="button" onclick="window.location='healthytools.html'">< နောက်သို့</button>
+                    <button class="next-btn" type="button" onclick="nextQuestion(1)">ရှေ့သို့ ></button>
+                </div>
+            </div>
+
+            <!-- Question 1 -->
+            <div class="question" id="question1" style="height: 300px;">
+                <p>01.သင့်မိဘတွေမှာ ဆီးချိုရှိပါသလား။</p>
+                <label class="option">ရှိပါတယ်။ <input type="radio" name="parentDiabetes" value="yes"></label>
+                <label class="option">မရှိပါ။ <input type="radio" name="parentDiabetes" value="no"></label>
+                <div class="buttons">
+                    <button class="prev-btn" type="button" onclick="prevQuestion(0)">< နောက်သို့</button>
+                    <button class="next-btn" type="button" onclick="nextQuestion(2)">ရှေ့သို့ ></button>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question" id="question2">
+                <p>02.သင့်ရဲ့ အစာရှောင်ခြင်း သွေးတွင်းသကြားဓာတ်အဆင့်က ဘယ်လောက်လဲ။</p>
+                <label class="option">Below 100 mg/dL <input type="radio" name="sugarLevel" value="low"></label>
+                <label class="option">100-125 mg/dL <input type="radio" name="sugarLevel" value="pre"></label>
+                <label class="option">126 mg/dL or above <input type="radio" name="sugarLevel" value="high"></label>
+                <div class="buttons">
+                    <button class="prev-btn" type="button" onclick="prevQuestion(1)">< နောက်သို့</button>
+                    <button class="next-btn" type="button" onclick="nextQuestion(3)">ရှေ့သို့ > </button>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question" id="question3">
+                <p>03.မကြာခဏ ရေငတ်ခြင်းနှင့် ဆီးသွားခြင်းကို ခံစားရပါသလား။?</p>
+                <label class="option">ရှိပါတယ်။ <input type="radio" name="symptoms" value="yes"></label>
+                <label class="option">မရှိပါ။ <input type="radio" name="symptoms" value="no"></label>
+                <div class="buttons">
+                    <button class="prev-btn" type="button" onclick="prevQuestion(2)"> < နောက်သို့</button>
+                    <button class="next-btn" type="button" onclick="nextQuestion(4)">ရှေ့သို့ ></button>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="question" id="question4">
+                <p>04.သင့်တွင် အထိုင်များသော နေထိုင်မှုပုံစံရှိပါသလား။</p>
+                <label class="option">ရှိပါတယ်။ <input type="radio" name="lifestyle" value="yes"></label>
+                <label class="option">မရှိပါ။ <input type="radio" name="lifestyle" value="no"></label>
+                <div class="buttons">
+                    <button class="prev-btn" type="button" onclick="prevQuestion(3)">< နောက်သို့</button>
+                    <button class="next-btn" type="button" onclick="nextQuestion(5)">ရှေ့သို့ ></button>
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question" id="question5">
+                <p>05.သင့်ရဲ့ BMI အတိုင်းအတာက ဘယ်လောက်လဲ။</p>
+                <label class="option">Below 18.5 (Underweight) <input type="radio" name="bmi" value="underweight"></label>
+                <label class="option">18.5-24.9 (Normal) <input type="radio" name="bmi" value="normal"></label>
+                <label class="option">25-29.9 (Overweight) <input type="radio" name="bmi" value="overweight"></label>
+                <label class="option">30 or above (Obese) <input type="radio" name="bmi" value="obese"></label>
+                <div class="buttons">
+                    <button class="prev-btn" type="button" onclick="prevQuestion(4)">< နောက်သို့</button>
+                    <button class="next-btn" type="button" onclick="showResult()">စစ်ဆေးမည်</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function nextQuestion(next) {
+            document.querySelectorAll('.question').forEach(q => q.classList.remove('active'));
+            document.getElementById(next === 0 ? 'startPage' : 'question' + next)?.classList.add('active');
+        }
+
+        function prevQuestion(prev) {
+            document.querySelectorAll('.question').forEach(q => q.classList.remove('active'));
+            document.getElementById(prev === 0 ? 'startPage' : 'question' + prev)?.classList.add('active');
+        }
+
+        function showResult() {
+    let score = 0;
+    let riskStatus = ''; // Variable to track risk status
+
+    // Calculate score based on answers
+    if (document.querySelector('input[name="parentDiabetes"]:checked')?.value === "yes") score++;
+    if (document.querySelector('input[name="sugarLevel"]:checked')?.value === "high") score++;
+    if (document.querySelector('input[name="symptoms"]:checked')?.value === "yes") score++;
+    if (document.querySelector('input[name="lifestyle"]:checked')?.value === "yes") score++;
+    if (document.querySelector('input[name="bmi"]:checked')?.value === "obese") score++;
+
+    // Generate result message
+    let result = score >= 3 ? "ဆီးချိုရောဂါဖြစ်နိုင်ချေရှိနိုင်သည်။ ဆရာဝန်နဲ့ တိုင်ပင်ပါ။" : "သင့်ဆီးချိုရောဂါဖြစ်နိုင်ချေက နည်းပါတယ်။";
+
+    // Navigate to the result page and pass the result
+    window.location.href = `diabetesresult.html?result=${encodeURIComponent(result)}`;
+}
+</script>
+</body>
+</html>

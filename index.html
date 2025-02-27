@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>HealthBridge Ayeyarwady</title>
+    <meta charset="utf-8">
+	<link rel="shortcut icon" type="x-icon" href="images/heart-1.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+    <link rel="stylesheet" href="css/flaticon.css">
+	
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+
+  <!-- *******  Owl Carousel Links  ******* -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="img/favicon.ico" rel="icon">
+ 
+   
+    
+
+    <link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/slider.css">
+	<link rel="stylesheet" href="css/back.css">
+	<link rel="stylesheet" href="css/bmi.css">
+	<link rel="stylesheet" href="css/advicediv.css">
+	<link rel="stylesheet" href="css/user.css">
+	<link rel="stylesheet" href="css/back.css">
+
+
+<style>
+
+     /* Fade overlay to dim background */
+	 .fade-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        z-index: 999;
+    }
+    
+    /* Show overlay when form is active */
+    .fade-overlay.show {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    /* Comment Form Styles */
+    .feed-container {
+        background: #ffffff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        padding: 20px;
+        max-width: 400px;
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0;
+        transition: all 0.3s ease;
+        z-index: 1000;
+        display: none;
+    }
+    
+    /* Show form in the center when active */
+    .feed-container.show {
+        display: block;
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+    
+    .feed-container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+    }
+    
+    .feed-container label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #555;
+    }
+    
+    .feed-container textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+        resize: none;
+        height: 100px;
+    }
+    
+    .feed-container .b1 {
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        font-size: 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+    }
+    
+    .feed-container .b1:hover {
+        background-color: #0056b3;
+    }
+    
+    /* Cross button to close form */
+    .close-btn {
+        position: relative;
+        top: 10px;
+        right: 10px;
+        background: none;
+        border: none;
+        color: #333;
+        font-size: 24px;
+        cursor: pointer;
+    }
+    
+    
+   .testimony-section {
+    position: relative;
+    min-height: 85vh;
+    }
+
+
+	
+</style>
+
+<script src="navscript.js"></script>
+  </head>
+  <body>
+		
+	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+			<div class="container">
+				<a class="navbar-brand" href="index.html">HealthBridge<span style="color: #0056b3;">Ayarwady<i class="fa fa-leaf" style="color: #0056b3;"></i> </span></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="fa fa-bars"></span> Menu
+				</button>
+				<div class="collapse navbar-collapse" id="ftco-nav">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item active"><a href="index.html" class="nav-link" data-key="home">မူလစာမျက်နှာ</a></li>
+						<li class="nav-item dropdown">
+							<a href="services.html" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-key="service">ဝန်ဆောင်မှုများ</a>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="exercise_program.html">လေ့ကျင့်ခန်းများ</a>
+								<a class="dropdown-item" href="healthytools.html">ကျန်းမာရေးကိရိယာများ</a>
+								<a class="dropdown-item" href="pricing.html">Package plans</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a href="success-stories.html" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-key="MentalRelax">စိတ်အပန်းဖြေရန်</a>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="meditation.html">Relax Songs</a>
+								<a class="dropdown-item" href="motivate.html">Motivate Songs</a>
+							</div>
+						</li>
+						
+						<li class="nav-item"><a href="healthys.html" class="nav-link" >ဆောင်းပါးများ</a></li>
+						<li class="nav-item"><a href="contact.html" class="nav-link" data-key="contact">ဆက်သွယ်ရန်</a></li>
+						<li class="nav-item" id="nav-links" ></li>
+					</ul>
+				</div>
+			</div>
+	</nav>
+	
+    <!-- END nav -->
+
+    <div class="hero-wrap js-fullheight">
+	    <div class="home-slider owl-carousel js-fullheight">
+	      <div class="slider-item js-fullheight" style="background-image:url(images/healthy.jpg);">
+	      	<div class="overlay"></div>
+	        <div class="container">
+	          <div class="row no-gutters slider-text align-items-center">
+		          <div class="col-md-7 ftco-animate">
+		          	<div class="text w-100">
+		          		<h2 data-key="title1">HealthBridge Ayeyarwady မှကြိုဆိုပါသည်။</h2>
+			            <h1 class="mb-4" data-key="page1">ကျန်းမာသောခန္ဓာနှင့် ပျော်ရွှင်သောဘဝအား ရယူလိုက်ပါ။</h1>
+			            <p><a href="#about" class="btn btn-primary" data-key="button1" >ပိုမိုသိရှိရန်</a> <a href="#" class="btn btn-white"  data-key="Feedback"  onclick="toggleForm()">မှတ်ချက်ပေးရန်</a></p>
+		            </div>
+		          </div>
+		        </div>
+	        </div>
+	      </div>
+
+	    
+
+	      <div class="slider-item js-fullheight" style="background-image:url(images/healthy3.jpg);">
+	      	<div class="overlay"></div>
+	        <div class="container" style="margin-left: 20rem;">
+	          <div class="row no-gutters slider-text align-items-center justify-content-end">
+		          <div class="col-md-6 ftco-animate">
+		          	<div class="text w-100">
+						<h2 data-key="title1">HealthBridge Ayeyarwady မှကြိုဆိုပါသည်။</h2>
+			            <h1 class="mb-4" data-key="page1">အလေ့အကျင့်ကို ပြောင်းလဲရုံနှင့် ကျန်းမာနိုင်ပါတယ်။</h1>
+			            <p><a href="#" class="btn btn-primary" data-key="button1" >ပိုမိုသိရှိရန်</a> <a href="#" class="btn btn-white"  data-key="Feedback"  onclick="toggleForm()">မှတ်ချက်ပေးရန်</a></p>
+		            </div>
+		          </div>
+		        </div>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+		
+    <section class="ftco-section ftco-services">
+    	<div class="container">
+    		<div class="row">
+          <div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
+            <div class="d-block services-wrap text-center">
+              <div class="img" style="background-image: url(images/exercise1.jpg);"></div>
+              <div class="media-body p-2 mt-3">
+                <h3 class="heading" data-key="Exercise">လေ့ကျင့်ခန်းအစီအစဉ်များ</h3>
+                <p>ကျန်းမာသန်စွမ်းရန်အတွက် လူငယ်များအတွက်သာမက လူကြီးများအတွက်ပါ လေ့ကျင့်ခန်းများ စုံလင်စွာပါဝင်ပါသည် </p>
+                <p><a href="exercise_program.html" class="btn btn-primary btn-outline-primary" data-key="Readmore">ပိုမိုဖတ်ရှုရန်</a></p>
+              </div>
+            </div>      
+          </div>
+          <div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
+            <div class="d-block services-wrap text-center">
+              <div class="img" style="background-image: url(images/tools.jpg);"></div>
+              <div class="media-body p-2 mt-3">
+                <h3 class="heading" data-key="Calculate">ကျန်းမာရေးကိရိယာများ</h3>
+                <p>ကျန်းမာရေးလိုအပ်ချက်များကို ပြည့်စုံစေရန် ကိရိယာများကို အသုံးပြု၍ စမ်းသပ်စစ်ဆေးနိုင်ပါသည်</p>
+                <p><a href="calculationplans.html" class="btn btn-primary btn-outline-primary" data-key="Readmore">ပိုမိုဖတ်ရှုရန်</a></p>
+              </div>
+            </div>    
+          </div>
+          <div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
+            <div class="d-block services-wrap text-center">
+              <div class="img" style="background-image: url(images/pricing.jpg);"></div>
+              <div class="media-body p-2 mt-3">
+                <h3 class="heading" >Package plans</h3>
+                <p>စိတ်အေးချမ်းမှုအတွက်သာမက စိတ်ဓာတ်တက်ကြွစေသည့် တေးဂီတများကိုပါ ခံစားနားဆင်နိုင်ပါသည်</p>
+                <p><a href="#" class="btn btn-primary btn-outline-primary" data-key="Readmore">ပိုမိုဖတ်ရှုရန်</a></p>
+              </div>
+            </div>      
+          </div>
+        </div>
+    	</div>
+    </section>
+
+    <section class="ftco-section ftco-no-pt ftco-no-pb bg-light" id="about">
+			<div class="container">
+				<div class="row no-gutters">
+					
+					<div class="bmi-calculator">
+						<header class="headerbmi" style="background-color:  #f2f8fc;padding: 3px;">
+						  <h3> <img style="width: 60px;height: 60px;" src="images/BMI_new.webp" alt="BMI Logo"> <br>BMI Calculator</h3>
+						  <p data-key="bmitext">BMI တွက်ချက်ခြင်း ကို အွန်လိုင်းကနေ အချိန်ခဏပေးပြီး အဖြေထုတ်နိုင်ပါပြီ</p>
+						</header>
+					
+						<form class="form">
+						  <div class="gender-selection">
+							<label>
+							  <input type="radio" name="gender" value="male" checked>
+							  <span data-key="bmiman">👨 အမျိုးသား</span>
+							</label>
+							<label>
+							  <input type="radio" name="gender" value="female">
+							  <span data-key="bmiwoman">👩 အမျိုးသမီး</span>
+							</label>
+						  </div>
+					
+						  <div class="form-group">
+							<label for="age" data-key="age">အသက်အရွယ် (years)</label>
+							<input type="number" id="age"  placeholder="eg.25">
+						  </div>
+					
+						  <div class="form-group">
+							<label for="height" data-key="height">အရပ်အမြင့် (cm)</label>
+							<input type="number" id="height" placeholder="eg.170">
+						  </div>
+					
+						  <div class="form-group">
+							<label for="weight" data-key="weight">ကိုယ်အလေးချိန် (kg)</label>
+							<input type="number" id="weight" placeholder="eg.60">
+						  </div>
+					
+						  <button type="submit" class="btnbmi" data-key="bmibutton">တွက်ချက်ပါ</button>
+						</form>
+					</div>
+
+			<div class="col-md-7 wrap-about py-4 py-md-5 ftco-animate">
+	          <div class="heading-section mb-5">
+	          	<div class="pl-md-5">
+		          	<span class="subheading mb-2" data-key="aboutwelcome">HealthBridge Ayeyarwady မှကြိုဆိုပါသည်</span>
+		            <h2 class="mb-2" data-key="abouttitle">မဂ်လာပါ,ကျန်းမာကြံ့ခိုင်ခြင်းနှင့် ဂရုစိုက်ခြင်းသည် သင့်ကိုယ်သင် တိုးတက်စေသည့် သဘာဝနည်းလမ်းတစ်ခုဖြစ်သည်။</h2>
+	            </div>
+	          </div>
+	          <div class="pl-md-5">
+							<p>HealthBridge Ayeyarwady ပလက်ဖောင်းသည် နေစဉ်ကျန်းမာပျော်ရွှင်စွာနေထိုင်နိုင်ရန် အရေးကြီးသောကျန်းမာသန်စွမ်းစေသည့်လေ့ကျင့်ခန်းများ၊ ကျန်းမာရေးနင့်ပတ်သက်​ပြီး ကြိုတင်ကာကွယ်နိုင်ရန်ကျန်းမာရေးစစ်ဆေးသည့်ကိရိယာများ၊ ကျန်းမာ​ရေး အသိပညာပေးဆောင်းပါး များ စုံလင်စွာပါသည့်အတွက် အသုံးပြုသူများသည်မိမိတို၏ကျန်းမာရေး ကိုအမြဲလေ့လာသုံးသပ်ဆင်ခြေနိုင်ကြမယ်ဖြစ်ပါသည်။</p>
+							<p>အသုံးပြုသူများသည်မိမိတို၏ကျန်းမာရေးကို အမြဲလေ့လာသုံးသပ်တွက်ချက်ရန်အတွက်အောက်ပါကျန်းမာရေးကိရိယာများကိုအသုံးပြုနိုင်ပါသည်။</p>
+							<div class="founder d-flex align-items-center mt-5" style="margin-bottom: 2rem;">
+								<div class="img" style="background-image: url(images/BMR_new.webp);width: 50px;height: 60px;cursor: pointer;" onclick="window.location='healthytools.html'"></div>
+								
+								<div class="img" style="background-image: url(images/ဆီးချိုရောဂါ.png);margin-left: 2rem;width: 50px;height: 60px;cursor: pointer;" onclick="window.location='healthytools.html'"></div>
+								
+								<div class="img" style="background-image: url(images/layphyt.png);margin-left: 2rem;width: 50px;height: 60px;cursor: pointer;" onclick="window.location='healthytools.html'"></div>
+								
+								<div class="img" style="background-image: url(images/pannar.webp);margin-left: 2rem;width: 50px;height: 60px;cursor: pointer;" onclick="window.location='healthytools.html'"></div>
+								
+								<div class="img" style="background-image: url(images/ရေတိမ်.png);margin-left: 2rem;width: 50px;height: 60px;cursor: pointer;" onclick="window.location='healthytools.html'"></div>
+								
+							
+							</div>
+							<a href="healthytools.html" data-key="calculatelink">ကိရိယာများအားလုံးကြည့်ရှုမည် ></a>
+						</div>
+					</div>
+				</div>
+			</div>
+	</section>
+
+	<section class="ftco-section">
+			<div class="container">
+				<div class="row justify-content-center pb-5 mb-3">
+			  <div class="col-md-7 heading-section text-center ftco-animate">
+				  <span class="subheading mb-3" data-key="otherservice">ဝန်ဆောင်မှုများ</span>
+				<h2 data-key="othertext">လုပ်ဆောင်ပုံ</h2>
+			  </div>
+			</div>
+				<div class="row">
+			  <div class="col-md-3 d-flex services align-self-stretch px-4 ftco-animate">
+				<div class="d-block text-center">
+				  <div class="icon d-flex justify-content-center align-items-center">
+						<span class="flaticon-diet"></span>
+				  </div>
+				  <div class="media-body p-2 mt-3">
+					<h3 class="heading" data-key="s1">စည်းစနစ်ကျစွာနေထိုင်လာခြင်း</h3>
+					<p>စည်းစနစ်တကျနေထိုင်တတ်ခြင်းဖြင့် ကျန်းမာစွာနှင့်ဘဝရည်မှန်းချက်ကိုအကောင်အထည်ဖော်နိုင်မည်ဖြစ်သည်။</p>
+				  </div>
+				</div>      
+			  </div>
+			  <div class="col-md-3 d-flex services align-self-stretch px-4 ftco-animate">
+				<div class="d-block text-center">
+				  <div class="icon d-flex justify-content-center align-items-center">
+						<span class="flaticon-workout"></span>
+				  </div>
+				  <div class="media-body p-2 mt-3">
+					<h3 class="heading" data-key="s2">ရလဒ်ကောင်းများရရှိခြင်း</h3>
+					<p>ဤ website ပါလေ့ကျင့်ခန်းများကိုလိုက်နာခြင်းဖြင့် ရလဒ်ကောင်းများရရှိမည်ဖြစ်သည်။</p>
+				  </div>
+				</div>    
+			  </div>
+			  <div class="col-md-3 d-flex services align-self-stretch px-4 ftco-animate">
+				<div class="d-block text-center">
+				  <div class="icon d-flex justify-content-center align-items-center">
+						<span class="flaticon-diet-1"></span>
+				  </div>
+				  <div class="media-body p-2 mt-3">
+					<h3 class="heading" data-key="s3">ကျန်းမာစွာစားသောက်ခြင်း</h3>
+					<p>ကျန်းမာရေးအတွက်အထောက်အကူပြုသောစားသောက်မှုပုံစံကိုစိစစ်တွက်ချက်နိုင်သည်။</p>
+				  </div>
+				</div>      
+			  </div>
+			  <div class="col-md-3 d-flex services align-self-stretch px-4 ftco-animate">
+				<div class="d-block text-center">
+				  <div class="icon d-flex justify-content-center align-items-center">
+						<span class="flaticon-first"></span>
+				  </div>
+				  <div class="media-body p-2 mt-3">
+					<h3 class="heading" data-key="s4">ပျော်ရွင်သောလူမှုဘဝ</h3>
+					<p>ကျန်းမာရေးဆောင်းပါးများကို ဖတ်ရှုလိုက်နာခြင်းဖြင့် ပျော်ရွှင်သောလူနေမှုဘဝပုံစံကိုရရှိနိုင်ပါသည်။</p>
+				  </div>
+				</div>      
+			  </div>
+			</div>
+			</div>
+	</section>
+
+
+	
+	<section class="ftco-intro" style="background-image: url(images/bg_1.jpg);" data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-9">
+					<h2 data-key="providetitle">အခမဲ့ ကျန်းမာရေး စောင့်ရှောက်မှု အကြံဉာဏ်ကို ရယူပါ။</h2>
+					<p class="mb-0" data-key="providetext">သင်၏ ကျန်းမာကြံ့ခိုင်မှုနှင့် ပြည့်စုံမှုသည် ကျွန်ုပ်တို့၏ ထိပ်တန်းဦးစားပေးဖြစ်သည်။</p>
+					<p></p>
+				</div>
+				<div class="col-md-3 d-flex align-items-center">
+					<p class="mb-0"><a href="contact.html" class="btn btn-white px-4 py-3" data-key="providebutton" style="color: white;background-color: transparent;border: 1px solid white;">အခမဲ့ဆက်သွယ်ရန်</a></p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+
+
+	  <!-- Overlay for background dimming --><div class="fade-overlay" id="fadeOverlay"></div>
+    
+	  <!-- Comment Form Modal -->
+	  <div class="feed-container" id="commentForm">
+		<button class="close-btn" onclick="toggleForm()" style="background-color: none;margin-left: 330px;margin-bottom: 10px;font-size: 30px;">×</button>
+		<h2 data-key="Feedbacktitle">မှတ်ချက်ချန်ထားရန်</h2>
+		<form onsubmit="event.preventDefault(); submitComment();">
+			<label for="userComment" data-key="Feedbactext">မှတ်ချက်</label>
+			<textarea id="userComment" name="comment" placeholder="မိတ်ဆွေမှတ်ချက်ကိုရေးရန်..." required></textarea>
+			<button type="submit" class="b1" data-key="Feedbackbutton">မှတ်ချက်ရေးမည်</button>
+		</form>
+	  </div>
+
+	
+  
+	
+    <section class="ftco-section testimony-section" style="height: 30vh; position: relative;background-color: ghostwhite;display: flex;justify-content: center;align-items: center;">
+		<div class="container" style="margin-bottom: 0px;">
+		  <div class="row justify-content-center pb-5 mb-3">
+			<div class="col-md-7 heading-section text-center ftco-animate">
+				<span class="subheading mb-3" data-key="testimonies">မှတ်ချက်များ</span>
+			  <h2 data-key="testitext">အသုံးပြုသူတို၏မှတ်ချက်များ</h2>
+			</div>
+		  </div>
+		  <div class="slider-container "  style="margin-top: 0px;" >
+			<div class="slider" id="slider"  style="background-color:  ghostwhite;">
+				<div class="slide" >
+					<div class="commenter">
+					  <img src="https://via.placeholder.com/50" alt="Commenter">
+					  <div class="commenter-info">
+						<span>John Doe</span>
+						<span><small>11 Dec 2024</small></span>
+					  </div>
+					</div>
+					<div class="comment">This is an amazing product! Highly recommended.</div>
+				</div>
+			  
+			</div>
+			<div class="navigation">
+			  <button class="nav-btn" id="prev">&#10094;</button>
+			  <button class="nav-btn" id="next">&#10095;</button>
+			</div>
+		  </div>
+		</div>
+	  </section>
+
+<!--
+<section class="ftco-section ftco-no-pt ftco-no-pb">
+		<div class="container-fluid px-md-0">
+			<div class="row no-gutters">
+				<div class="col-md-3 d-flex align-items-stretch">
+					<div class="consultation w-100 text-center px-4 px-md-5">
+						<h3 class="mb-4" data-key="lefttilte">Healthcare Services</h3>
+						<p>A small river named Duden flows by their place and supplies</p>
+						<a href="#" class="btn-custom" data-key="showservice">See Services</a>
+					</div>
+				</div>
+				<div class="col-md-6 d-flex align-items-stretch">
+					<div class="consultation consul w-100 px-4 px-md-5">
+						<div class="text-center">
+							<h3 class="mb-4" data-key="formtitle">Free Consultation</h3>
+						</div>
+						<form action="#" class="appointment-form">
+							<div class="row">
+								<div class="col-md-12 col-lg-6 col-xl-4">
+									<div class="form-group">
+									<input type="text" class="form-control" placeholder="အမည်အစ">
+								</div>
+								</div>
+								<div class="col-md-12 col-lg-6 col-xl-4">
+									<div class="form-group">
+									<input type="text" class="form-control" placeholder="အမည်အဆုံး">
+								</div>
+								</div>
+								<div class="col-md-12 col-lg-6 col-xl-4">
+									<div class="form-group">
+									<div class="form-field">
+								  <div class="select-wrap">
+						  <div class="icon"><span class="fa fa-chevron-down"></span></div>
+						  <select name="" id="" class="form-control">
+							  <option value="" data-key="service">Services</option>
+							<option value="">Services 1</option>
+							<option value="">Services 2</option>
+						  </select>
+						</div>
+						  </div>
+								</div>
+								</div>
+								<div class="col-md-12 col-lg-6 col-xl-4">
+									<div class="form-group">
+									<div class="input-wrap">
+								<div class="icon"><span class="ion-md-calendar"></span></div>
+								<input type="text" class="form-control appointment_date" placeholder="ရက်စွဲ">
+							</div>
+								</div>
+								</div>
+								<div class="col-md-12 col-lg-6 col-xl-4">
+									<div class="form-group">
+									<div class="input-wrap">
+								<div class="icon"><span class="ion-ios-clock"></span></div>
+								<input type="text" class="form-control appointment_time" placeholder="အချိန်">
+							</div>
+								</div>
+								</div>
+								<div class="col-md-12 col-lg-6 col-xl-4">
+									<div class="form-group">
+							<button type=" submit" class="btn btn-white py-2 px-4" data-key="formbutton" style="font-size: 15px;">Appointment</button>
+						 
+						</div>
+								</div>
+							</div>
+					</form>
+			  </div>
+				</div>
+				<div class="col-md-3 d-flex align-items-stretch">
+					<div class="consultation w-100 text-center px-4 px-md-5">
+						<h3 class="mb-4" data-key="righttitle">Find A Health Expert</h3>
+						<p>A small river named Duden flows by their place and supplies</p>
+						<a href="#" class="btn-custom" data-key="showexpect">Meet our health coach</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section><br>	  
+
+-->	 
+	
+
+	
+
+	<div class="card-container">
+		<header class="section-header">
+		  <h2 data-key="maintext" style="font-weight: bold;">အရေးကြီးသော ကျန်းမာရေးဆောင်းပါးများ</h2>
+		  <a href="healthys.html" class="view-more" data-key="shownew">ဆောင်းပါးများကြည့်ရန် ></a>
+		</header>
+	
+		<div class="cards" style="cursor: pointer;">
+		  <div class="card" onclick="window.location.href = 'mind.html'; ">
+			<img cl src="images/Healthy-Mind.webp" alt="Card 1">
+			<p data-key="eye">စိတ်ကျန်းမာရေး
+			</p>
+		  </div>
+		  <div class="card">
+			<img src="images/Healthy-Habits.webp" alt="Card 2">
+			<p data-key="manhealthy">ကျန်းမာစေမည့်အလေ့အကျင့်များ
+			</p>
+		  </div>
+		  <div class="card">
+			<img src="images/Healthy-Fitness.webp" alt="Card 3">
+			<p data-key="womanhealthy">ကျန်းမာစေမည့် ကိုယ်လက်လှုပ်ရှားမှုများ</p>
+		  </div>
+		  <div class="card">
+			<img src="images/Brain-NS.webp" alt="Card 4">
+			<p data-key="oldpeoplehealthy">ဦးနှောက်အာရုံကြောကျန်းမာရေး
+			</p>
+		  </div>
+		  <div class="card">
+			<img src="images/Heart-Health.webp  " alt="Card 5">
+			<p data-key="goodfood">နှလုံးနှင့်သွေးကြော ကျန်းမာရေး</p>
+		  </div>
+		  <div class="card">
+			<img src="images/Cancer.webp" alt="Card 6">
+			<p data-key="goodold">ကင်ဆာရောဂါများ
+			</p>
+		  </div>
+		</div>
+	</div>
+		
+		
+    <!-- <section class="ftco-section">
+    	<div class="container">
+    		<div class="row justify-content-center pb-5 mb-3">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+          	<span class="subheading">Other Services</span>
+            <h2>How it works</h2>
+          </div>
+        </div>
+    		<div class="row d-flex no-gutters">
+    			<div class="col-md-6 d-flex">
+    				<div class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-end mb-4 mb-sm-0" style="background-image:url(images/about.jpg);">
+    				</div>
+    			</div>
+    			<div class="col-md-6 pl-md-5 py-md-5">
+    				<div class="services-2 w-100 d-flex">
+    					<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-account"></span></div>
+    					<div class="text pl-4">
+    						<h4>Follow the program</h4>
+    						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+    					</div>
+    				</div>
+    				<div class="services-2 w-100 d-flex">
+    					<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-skills"></span></div>
+    					<div class="text pl-4">
+    						<h4>Work for result</h4>
+    						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+    					</div>
+    				</div>
+    				<div class="services-2 w-100 d-flex">
+    					<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-performance"></span></div>
+    					<div class="text pl-4">
+    						<h4>Eat healthy Food</h4>
+    						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+    					</div>
+    				</div>
+    				<div class="services-2 w-100 d-flex">
+    					<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-event"></span></div>
+    					<div class="text pl-4">
+    						<h4>Enjoy your life</h4>
+    						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+    					</div>
+    				</div>
+	        </div>
+        </div>
+    	</div>
+    </section> -->
+
+  
+
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center pb-5 mb-3">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+            <h2 data-key="newstitle">ကျန်းမာရေးဆောင်းပါးအသစ်များ</h2>
+            <span class="subheading" data-key="newtext">ကျန်းမာရေးနှင့်ကြံခိုင်ရေး</span>
+          </div>
+        </div>
+        <div class="row d-flex">
+          <div class="col-md-4 d-flex ftco-animate">
+            <div class="blog-entry align-self-stretch">
+              <a href="blog-single.html" class="block-20 rounded" style="background-image: url('images/exercise2.jpg');">
+              </a>
+              <div class="text mt-3">
+              	<div class="meta mb-2">
+                
+                
+                </div>
+                <h3 class="heading"><a href="#" data-key="lt1">လေ့ကျင်ခန်း ပုံမှန်လုပ်ခြင်း၏ကောင်းကျိုးများအကြောင်း</a></h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 d-flex ftco-animate">
+            <div class="blog-entry align-self-stretch">
+              <a href="blog-single.html" class="block-20 rounded" style="background-image: url('images/healthyFood.jpg');">
+              </a>
+              <div class="text mt-3">
+              	<div class="meta mb-2">
+                
+                
+                </div>
+                <h3 class="heading"><a href="#" data-key="lt2">ကျန်းမာအောင် ဘလိုနေထိုင်စားသောက်ကြမလဲသိကောင်းစရာ</a></h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 d-flex ftco-animate">
+            <div class="blog-entry align-self-stretch">
+              <a href="blog-single.html" class="block-20 rounded" style="background-image: url('images/healthyFood2.jpg');">
+              </a>
+              <div class="text mt-3">
+              	<div class="meta mb-2">
+                 
+                
+                 
+                </div>
+                <h3 class="heading"><a href="#" data-key="lt3">ကျန်းမာရေကောင်းမွန်းစေသောအစားအစာများအကြောင်း</a></h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+		
+
+    <!-- <section class="ftco-section ftco-no-pb ftco-no-pt">
+      <div class="container">
+      	<div class="row">
+	      	<div class="col-md-12">
+	      		<div class="bg-secondary w-100 rounded p-4">
+	        		<div class="row">
+			          <div class="col-md-7 d-flex align-items-center">
+			            <h2 class="mb-3 mb-sm-0" style="color:black; font-size: 18px;">Subcribe for our weekly tips</h2>
+			          </div>
+			          <div class="col-md-5 d-flex align-items-center">
+			            <form action="#" class="subscribe-form">
+			              <div class="form-group d-flex">
+			                <input type="text" class="form-control" placeholder="Enter email address">
+			                <input type="submit" value="Subscribe" class="submit px-3">
+			              </div>
+			            </form>
+			          </div>
+		          </div>
+			      </div>
+			    </div>
+			  </div>
+      </div>
+    </section> -->
+
+	  <!-- Back to Top Button -->
+	  <button id="scrollToTop" onclick="scrollToTop()">↑</button>
+
+	  <footer class="footer" style="width: 100%;">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-10 col-lg-6">
+					<div class="subscribe mb-5">
+						<form action="#" class="subscribe-form">
+			<div class="form-group d-flex" style="flex-direction: row;">
+			  <input type="text" class="form-control rounded-left" placeholder="You can Subscribe here" readonly style="color: black;">
+			  <input style="margin-left: 20px;" value="Subscribe" class="form-control submit px-3" onclick="subscribe()">
+			</div>
+		  </form>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 col-lg-5">
+					<div class="row">
+						<div class="col-md-12 col-lg-8 mb-md-0 mb-4">
+							<h2 class="footer-heading"><a href="#" class="logo">HealthBridge<span style="color: blue;">Ayeyarwady</span></a></h2>
+							<p> ကျန်းမာကြံခိုင်ရေးနှင့်ပတ်သက်ရာတွင် စိတ်ချရသော ယုံကြည်စိတ်ချရသော ကျန်းမာရေး ဒီဂျစ်တယ်ပလက်ဖောင်းတစ်ခုဖြစ်ပါသည်။</p>
+							<a href="#about" data-key="Readmore">ပိုမိုဖတ်ရှုရန် <span class="ion-ios-arrow-round-forward"></span></a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-8 col-lg-7">
+					<div class="row">
+						<div class="col-md-3 mb-md-0 mb-4 border-left">
+							<h2 class="footer-heading" data-key="fservice">ဝန်ဆောင်မှုများ</h2>
+							<ul class="list-unstyled" style="width: 200px;">
+				  
+				 
+				  <li><a href="exercise_program.html" class="py-1 d-block" data-key="f3">လေ့ကျင့်ခန်းအစီအစဉ်</a></li>
+				  <li><a href="healthytools.html" class="py-1 d-block" data-key="f2">ကျန်းမာရေးကိရိယာများ</a></li>
+				  <li><a href="pricing.html" class="py-1 d-block" data-key="f4">Package Plans</a></li>
+				</ul>
+						</div>
+						<div class="col-md-3 mb-md-0 mb-4 " style="width: 10px;">
+							<h2 class="footer-heading"></h2>
+							<ul class="list-unstyled">
+				  <li><a href="#" class="py-1 d-block"></a></li>
+				  <li><a href="#" class="py-1 d-block"></a></li>
+				  <li><a href="#" class="py-1 d-block"></a></li>
+				  <li><a href="#" class="py-1 d-block"></a></li>
+				</ul>
+						</div>
+						
+						<div class="col-md-3 mb-md-0 mb-4 border-left" style="padding-right: 20px;">
+							<h2 class="footer-heading" data-key="fsocial">ဆိုရှုယ်မီဒီယာများ</h2>
+							<ul class="list-unstyled">
+				  <li><a href="#" class="py-1 d-block">Facebook</a></li>
+				  <li><a href="#" class="py-1 d-block">Youtube</a></li>
+				 
+				</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row mt-5">
+	 
+	</div>
+		</div>
+	</footer>
+    
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+  <script src="js/jquery.timepicker.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/slider.js"></script>
+  <script src="js/back.js"></script>
+  <script src="js/bmi.js"></script>
+  <script src="js/comment.js"></script>
+  <script src="js/subscribe.js"></script>
+	
+
+    
+  </body>
+</html>

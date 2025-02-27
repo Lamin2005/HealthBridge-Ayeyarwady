@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Health Coach - Free Bootstrap 4 Template by Colorlib</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+      body{
+        background-color: ghostwhite;
+      }
+        .container {
+          font-family: Arial, sans-serif;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 0 auto;
+          height: 80vh;
+          background-color: ghostwhite;
+        }
+    
+        .workout-container {
+          width: 380px;
+          height: 450px;
+          text-align: center;
+          background-color: white;
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+        }
+    
+        .workout-animation {
+          margin-bottom: 10px;
+        }
+    
+        .workout-video {
+          width: 350px;
+          height: 200px;
+          border-radius: 10px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    
+        #exercise-name {
+          font-size: 24px;
+        }
+    
+        #timer {
+          font-size: 30px;
+          margin-bottom: 3px;
+          color: #333;
+        }
+    
+        button {
+          padding: 10px 20px;
+          margin: 5px;
+          border: none;
+          border-radius: 5px;
+          background-color: #27ae60;
+          color: white;
+          font-size: 16px;
+          cursor: pointer;
+        }
+    
+        button:hover {
+          background-color: #2ecc71;
+        }
+    
+        #pause-btn {
+          background-color: #e67e22;
+        }
+    
+        #pause-btn:hover {
+          background-color: #d35400;
+        }
+    
+        .cbtn{
+          margin-top: 225px;
+        }
+       .icon{
+        font-size: 30px;
+        text-align: right;
+        padding-right: 5px;
+       }
+      </style>
+
+    <script src="navscript.js"></script>
+  </head>
+  <body>
+    <div class="back">
+        <a href="ChooseDay.html"><p class="icon">❌</p></a>
+    </div>
+
+		<div class="container">
+    <div class="workout-container">
+        <div class="workout-animation">
+          <video id="workout-video" class="workout-video" autoplay loop muted>
+            <source src="video/DoingBoxPistolSquat.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        
+        <div class="workout-info">
+          <h1 id="exercise-name">BOX PISTOL SQUAT</h1>
+          <p id="timer">00:30</p>
+          <button id="previous-btn">Previous</button>
+          <button id="pause-btn">PAUSE</button>
+          <button id="skip-btn">Skip</button>
+        </div>
+        
+        <div class="workout-controls">
+          
+          
+        </div>
+      </div>
+    </div>
+    
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+  <script src="js/jquery.timepicker.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="js/google-map.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/lan.js"></script>
+
+  <script>
+  // Define audio notifications
+const startExerciseSound = new Audio('start-exercise.mp3');
+const startRestSound = new Audio('start-rest.mp3');
+const endWorkoutSound = new Audio('end-workout.mp3');
+
+// Enable looping for the rest sound
+startRestSound.loop = true;
+
+const exercises = [
+  { name: 'Box Pistol Squat', duration: 20, rest: 10, video: 'video/DoingBoxPistolSquat1.mp4' },
+  { name: 'Barbell Narrow Squat', duration: 20, rest: 10, video: 'video/Barbell Narrow Squat.mp4' },
+  { name: 'Squat To Calf Raise', duration: 20, rest: 15, video: 'video/squat_to_calf_raise1.mp4' },
+  { name: 'Glute Bridges', duration: 20, rest: 10, video: 'video/glute_bridges1.mp4' },
+  { name: 'Knees to Chest Glute Stretching', duration: 20, rest: 10, video: 'video/knees_to_chest_stretch1.mp4' },
+  { name: 'Modified Cobra Stretching', duration: 20, rest: 10, video: 'video/modified_cobra_stretch1.mp4' },
+  { name: 'Step-Up Left Leg', duration: 20, rest: 10, video: 'video/step_up_left_leg1.mp4' },
+  { name: 'Bird Dog', duration: 20, rest: 10, video: 'video/step_up_bird_dog1.mp4' },
+  { name: 'Overhead Forward Lunges', duration: 20, rest: 10, video: 'video/Overhead Forward Lunges.mp4' },
+  { name: 'Bodyweight Tricep', duration: 20, rest: 10, video: 'video/Bodyweight Tricep.mp4' }
+];
+
+let currentExerciseIndex = 0;
+let timeRemaining = exercises[currentExerciseIndex].duration;
+let restTimeRemaining = exercises[currentExerciseIndex].rest;
+let isPaused = false;
+let isResting = false;
+let interval;
+
+const timerElement = document.getElementById('timer');
+const pauseButton = document.getElementById('pause-btn');
+const exerciseNameElement = document.getElementById('exercise-name');
+const workoutVideoElement = document.getElementById('workout-video');
+
+// Start the timer
+function startTimer() {
+  if (interval) clearInterval(interval);
+  interval = setInterval(() => {
+    if (!isPaused) {
+      if (isResting) {
+        restTimeRemaining--;
+        updateTimerDisplay(restTimeRemaining);
+        if (restTimeRemaining <= 0) endRest();
+      } else {
+        timeRemaining--;
+        updateTimerDisplay(timeRemaining);
+        if (timeRemaining <= 0) startRest();
+      }
+    }
+  }, 1000);
+}
+
+// Update the timer display
+function updateTimerDisplay(time) {
+  const minutes = Math.floor(time / 60);
+  const seconds = time % 60;
+  timerElement.textContent = `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+}
+
+// Pause/Resume functionality
+pauseButton.addEventListener('click', () => {
+  isPaused = !isPaused;
+  pauseButton.textContent = isPaused ? 'RESUME' : 'PAUSE';
+});
+
+// Start the rest period
+function startRest() {
+  isResting = true;
+  restTimeRemaining = exercises[currentExerciseIndex].rest;
+  exerciseNameElement.textContent = 'REST';
+  workoutVideoElement.style.display = 'none';
+  updateTimerDisplay(restTimeRemaining);
+  startRestSound.play();
+  startTimer();
+}
+
+// End the rest period
+function endRest() {
+  isResting = false;
+  startRestSound.pause();
+  startRestSound.currentTime = 0;
+  nextExercise();
+}
+
+// Load the exercise at the given index
+function loadExercise(index) {
+  if (interval) clearInterval(interval);
+
+  const exercise = exercises[index];
+  exerciseNameElement.textContent = exercise.name;
+  workoutVideoElement.src = exercise.video;
+  workoutVideoElement.style.display = 'block';
+
+  timeRemaining = exercise.duration;
+  restTimeRemaining = exercise.rest;
+  isPaused = false;
+  isResting = false;
+  pauseButton.textContent = 'PAUSE';
+
+  // Display "Ready to go" message
+  timerElement.textContent = 'Ready to go';
+  setTimeout(() => {
+    updateTimerDisplay(timeRemaining);
+    startTimer();
+  }, 3000);
+}
+
+// Move to the next exercise
+function nextExercise() {
+  if (currentExerciseIndex < exercises.length - 1) {
+    currentExerciseIndex++;
+    loadExercise(currentExerciseIndex);
+    startExerciseSound.play();
+  } else {
+    completeWorkout();
+  }
+}
+
+// Move to the previous exercise
+function previousExercise() {
+  if (currentExerciseIndex > 0) {
+    currentExerciseIndex--;
+    loadExercise(currentExerciseIndex);
+  } else {
+    currentExerciseIndex = exercises.length - 1;
+    loadExercise(currentExerciseIndex);
+  }
+}
+
+// Complete the workout
+function completeWorkout() {
+  if (interval) clearInterval(interval);
+
+  endWorkoutSound.play();
+  exerciseNameElement.textContent = 'Congratulations!';
+  exerciseNameElement.style.marginTop = '150px';
+  timerElement.style.display = 'none';
+  pauseButton.style.display = 'none';
+  document.getElementById('previous-btn').style.display = 'none';
+  document.getElementById('skip-btn').style.display = 'none';
+  workoutVideoElement.style.display = 'none';
+
+  const completeButton = document.createElement('button');
+  completeButton.textContent = 'Complete';
+  completeButton.style.marginTop = '20px';
+  completeButton.addEventListener('click', () => {
+     // Get the loggedInUser from session storage
+     const loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
+
+// Get users from localStorage
+const users = JSON.parse(localStorage.getItem('users')) || [];
+
+// Check if loggedInUser exists and if there is a matching user in localStorage
+const userExists = users.some(user => user.id === loggedInUser.id);
+
+if (userExists) {
+    // Update the users array with the 'Full Body' type
+    const updatedUsers = users.map(user => {
+        if (user.id === loggedInUser.id) {
+            // Check if types object exists, if not, create it
+            if (!user.types) {
+                user.types = {};
+            }
+
+            // If 'Full Body' is not already set, create or add it
+            if (!user.types['Full_Body_Male']) {
+                user.types['Full_Body_Male'] = 1;
+            } else {
+                // If 'Full Body' already exists, add a new type or value here (if necessary)
+                // For example, you can just keep the value, or add other types.
+                // Here, I'm just showing that we can manipulate it in different ways:
+                user.types['Full_Body_Male'] = user.types['Full_Body_Male'] + 1; // Increment the value for example
+            }
+        }
+        return user;
+    });
+
+    // Save the updated users array back to localStorage
+    localStorage.setItem('users', JSON.stringify(updatedUsers));
+
+    alert('User data updated!');
+    window.location.href = "chooseday2.html";
+} else {
+    alert('User not found!');
+}
+  });
+
+  exerciseNameElement.parentNode.appendChild(completeButton);
+}
+
+
+
+
+// Event listeners for skip and previous buttons
+document.getElementById('skip-btn').addEventListener('click', nextExercise);
+document.getElementById('previous-btn').addEventListener('click', previousExercise);
+
+// Initialize the workout
+loadExercise(currentExerciseIndex);
+
+</script>
+  </body>
+</html>

@@ -1,0 +1,155 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #eaf6ff;
+    
+  }
+
+  .container2 {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+  }
+ 
+.search-bar {
+position: relative;
+margin-bottom: 30px;
+width: 100%;
+max-width: 1200px; /* Limit maximum width */
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.search-bar input {
+width: 100%;
+height: 45px;
+padding: 12px 50px 12px 40px; /* Adjust padding for the icon */
+font-size: 18px;
+border: 2px solid #007bff;
+border-radius: 50px;
+outline: none;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-bar input:focus {
+border-color: #0056b3;
+box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+.search-bar input:hover {
+background-color: #f0f8ff;
+}
+
+.search-bar .icon1 {
+position: absolute;
+top: 50%;
+left: 13px;
+transform: translateY(-50%);
+font-size: 20px;
+color: #007bff;
+}
+  .user-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+  }
+
+  .user {
+    flex: 1 1 calc(33.333% - 20px);
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s;
+    max-width: 400px;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+   
+  }
+
+  .user:hover {
+    transform: translateY(-5px);
+  }
+
+  .user img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+    margin-left: 20px;
+    
+  }
+
+  .user h3 {
+    font-size: 17px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+    margin-left: 20px;
+  }
+
+  .user p {
+    font-size: 14px;
+    color: #777;
+    text-align: center;
+  }
+
+  a{
+    text-decoration: none;
+  }
+
+  #noResults {
+    font-size:25px;
+    font-weight: lighter;
+  }
+
+  .noResults{
+    display: none; 
+    color: red; 
+    text-align: center; 
+    margin-top: 20px;
+  }
+
+  
+    
+  @media (max-width: 768px) {
+    .user {
+      flex: 1 1 100%; /* Make each user card take 100% of the width */
+      max-width: 100%; /* Ensure no other max-width constraint overrides this */
+    }
+    .search-bar input {
+      width: 90%;
+    }
+
+    
+    .search-bar .icon1 {
+      position: absolute;
+      top: 50%;
+      left:2rem;
+      transform: translateY(-50%);
+      font-size: 20px;
+      color: #007bff;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .user {
+    flex: 1 1 100%; /* Make each user card take 100% of the width */
+    max-width: 100%; /* Ensure no other max-width constraint overrides this */
+  }
+  
+    .search-bar input {
+      width: 90%; /* Keep the search bar responsive */
+    }
+  
+    .search-bar .icon1 {
+      left: 1rem; /* Adjust icon positioning */
+    }
+  }
+  
+

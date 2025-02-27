@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>HealthBridge Ayeyarwady</title>
+    <meta charset="utf-8">
+	  <link rel="shortcut icon" type="x-icon" href="images/heart-1.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  </head>
+  <body>
+
+    <style>
+        /* Base styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+    align-items: center;
+    height: 100vh;
+    background:url(images/bg-risk-screener.jpg);
+}
+
+.container {
+    width: 400px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Card styles with previous colors */
+.card {
+    width: 180px;
+    height: 180px;
+   /* Blue */
+ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s;
+}
+
+.card img{
+    width: 100%;
+    height: 100%;
+}
+
+#card2 img{
+    border-radius: 20px;
+}
+
+.card:hover {
+    transform: scale(1.1);
+  
+}
+
+/* Button styles with previous colors */
+button {
+    padding: 10px 20px;
+    border: none;
+    background: #28a745; /* Green */
+    color: white;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+button:hover {
+    background: #218838; /* Darker green */
+}
+
+/* Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent backdrop */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease-in-out;
+    z-index: 999;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Popup content */
+.popup-content {
+    width: 300px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    animation: zoomIn 0.3s ease-in-out;
+}
+
+/* Popup image */
+.popup-img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes zoomOut {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(0.8);
+    }
+}
+
+/* Closing animation for popup */
+.popup-content.closing {
+    animation: zoomOut 0.3s ease-in-out;
+}
+
+.overlay.closing {
+    animation: fadeOut 0.3s ease-in-out;
+}
+
+    </style>
+</head>
+<body>
+
+    
+    <h1>ငွေပေးချေရန် မိမိနှစ်သက်ရာ payment ကိုရွေးချယ်ပါ</h1>
+    <div class="container">
+        <div class="card" id="card1">
+            <img src="images/kpay.jpg" alt="kpay">
+        </div>
+        <div class="card" id="card2">
+           <img src="images/wave pay.jpg" alt="wavepay">
+        </div>
+      
+    </div>
+    <a href="userpayment.html"><button id="actionButton">ငွေပေးချေပြီးကြောင်းမှတ်ပုံတင်မည်။</button></a>
+    <a href="pricing.html"><button id="actionButton">ငွေမပေးချေတော့ပါ။</button></a>
+
+    <!-- Shared Popup -->
+    <div class="overlay hidden" id="overlay">
+        <div class="popup-content">
+            <img src="images/qr.jpg" alt="Close-Up" class="popup-img">
+            <button id="closePopup">Close</button>
+        </div>
+    </div>
+
+    <script>
+        const overlay = document.getElementById('overlay');
+const closePopupButton = document.getElementById('closePopup');
+const popupContent = document.querySelector('.popup-content');
+const cards = document.querySelectorAll('.card');
+
+// Show the popup when any card is clicked
+cards.forEach(card => {
+    card.addEventListener('click', () => {
+        overlay.classList.remove('hidden');
+    });
+});
+
+// Close the popup with animation
+closePopupButton.addEventListener('click', () => {
+    // Add closing animations
+    popupContent.classList.add('closing');
+    overlay.classList.add('closing');
+
+    // Wait for animation to finish before hiding
+    setTimeout(() => {
+        popupContent.classList.remove('closing');
+        overlay.classList.remove('closing');
+        overlay.classList.add('hidden');
+    }, 300); // Match animation duration (0.3s)
+});
+
+    </script>
+</body>
+</html>

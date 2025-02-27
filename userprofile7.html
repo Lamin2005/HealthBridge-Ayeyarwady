@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Design</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/userprofile7.css">
+</head>
+<body>
+
+    <h2 class="form-title">ကျွန်ုပ်၏ ကိုယ်ရေးအချက်အလက်</h2>
+
+
+    <div class="img" id="img">   
+            <div class="imgdiv">
+                <img src="" alt="" style="width: 150px;height: 150px;border-radius: 50%;" id="profile-img">
+                <div class="namediv">
+                    <h3>La Min Hein</h3>
+                    <h3>laminhein@gmail.com</h3>
+                </div>   
+
+               
+            </div>
+            <button class="edit-btn" id="edit-btn" onclick="edit()">
+                ပြုပြင်မည်။
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                    <path d="M12.146.854a.5.5 0 0 1 .708 0l2.292 2.292a.5.5 0 0 1 0 .708l-9.793 9.793a.5.5 0 0 1-.168.11l-4 1.5a.5.5 0 0 1-.651-.651l1.5-4a.5.5 0 0 1 .11-.168l9.793-9.793zM11.207 2l-9.5 9.5V13h1.5l9.5-9.5L11.207 2z"/>
+                </svg> 
+            </button>      
+    </div>
+       
+   
+
+    <div class="container">
+        <div class="input-group">
+            <label for="username">ကောင့် ပြုလုပ်လိုပါသလား</label>
+            <input type="text" id="username">
+        </div>
+
+        <div class="input-group">
+            <label for="email">ကောင့်ကို အသုံးပြုပါ</label>
+            <input type="text" id="email">
+        </div>
+
+
+        <div class="input-group">
+            <label for="password">ကောင့်လုံခြုံမှုနှင့် <strong>ကောင့် အချက်အလက်</strong></label>
+            <input type="password" id="password">
+            <span class="eye-icon" onclick="togglePassword('password', this)">👁️‍🗨️</span>
+        </div>
+       
+    </div>
+
+    <script src="js/form.js"></script>
+
+</body>
+</html>
