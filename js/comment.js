@@ -16,7 +16,7 @@
                 image: "images/person_2.jpg"
             },
             {
-                name: "ပြည့်စုံထွတ်",
+                name: "ပြည့်စုံထွဋ်",
                 text: "Very helpful and responsive team.",
                 status: "approved",
                 date: "2024-12-27T14:45:00.456Z",

@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const matchedUser = paymentUsers.find(user => String(user.id) === String(loggedInUser.id));
 
         if (matchedUser) {
-            if (matchedUser.account === "paltinum" || matchedUser.account === "standard" || matchedUser.account === "premium" && matchedUser.status === "approved") {
+            if (matchedUser.account === "standard" && matchedUser.status === "approved") {
                 window.location.href = "diabetes.html";
             }
              else {
@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const matchedUser = paymentUsers.find(user => String(user.id) === String(loggedInUser.id));
 
         if (matchedUser) {
-            if (matchedUser.account === "paltinum" || matchedUser.account === "standard" || matchedUser.account === "premium" && matchedUser.status === "approved") {
+            if ( matchedUser.account === "standard"  && matchedUser.status === "approved") {
                 window.location.href = "diabetes.html";
             }
              else {
@@ -204,7 +204,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const matchedUser = paymentUsers.find(user => String(user.id) === String(loggedInUser.id));
 
         if (matchedUser) {
-            if (matchedUser.account === "paltinum" || matchedUser.account === "standard" || matchedUser.account === "premium" && matchedUser.status === "approved") {
+            if (matchedUser.account === "standard"  && matchedUser.status === "approved") {
                 window.location.href = "heartdisease.html";
             }
              else {
@@ -240,6 +240,445 @@ document.addEventListener('DOMContentLoaded', function () {
     const matchedUser = paymentUsers.find(user => String(user.id) === String(loggedInUser.id));
 
     if (matchedUser) {
+        if ( matchedUser.account === "standard" && matchedUser.status === "approved") {
+            window.location.href = "heartdisease.html";
+        }
+         else {
+            alert("Your payment is under review. Please wait for the admin's approval.");
+            return;
+        }
+    } else {
+        if (confirm("You need to upgrade your account. Do you want to go to the pricing page?")) {
+            window.location.href = "pricing.html"; // Redirect to pricing page
+        }
+    }
+    });
+
+    
+    document.getElementById("bone1").addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent default link behavior
+
+        // Retrieve and parse sessionStorage data
+        const sessionData = sessionStorage.getItem("loggedInUser");
+        const loggedInUser = sessionData ? JSON.parse(sessionData) : null;
+
+        // Retrieve and parse localStorage data
+        const localData = localStorage.getItem("Paymentusers");
+        const paymentUsers = localData ? JSON.parse(localData) : [];
+
+        // Ensure session data exists
+        if (!loggedInUser || !loggedInUser.id) {
+            alert("You need to log in first!");
+            window.location.href = "signin.html";
+            return;
+        }
+
+        // Find the user in the localStorage array (ensuring ID comparison works)
+        const matchedUser = paymentUsers.find(user => String(user.id) === String(loggedInUser.id));
+
+        if (matchedUser) {
+            if ( matchedUser.account === "standard" || matchedUser.account === "premium" && matchedUser.status === "approved") {
+                window.location.href = "diabetes.html";
+            }
+             else {
+                alert("Your payment is under review. Please wait for the admin's approval.");
+                return;
+            }
+        } else {
+            if (confirm("You need to upgrade your account. Do you want to go to the pricing page?")) {
+                window.location.href = "pricing.html"; // Redirect to pricing page
+            }
+        }
+    });
+    
+
+    document.getElementById("bone2").addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent default link behavior
+
+        // Retrieve and parse sessionStorage data
+        const sessionData = sessionStorage.getItem("loggedInUser");
+        const loggedInUser = sessionData ? JSON.parse(sessionData) : null;
+
+        // Retrieve and parse localStorage data
+        const localData = localStorage.getItem("Paymentusers");
+        const paymentUsers = localData ? JSON.parse(localData) : [];
+
+        // Ensure session data exists
+        if (!loggedInUser || !loggedInUser.id) {
+            alert("You need to log in first!");
+            window.location.href = "signin.html";
+            return;
+        }
+
+        // Find the user in the localStorage array (ensuring ID comparison works)
+        const matchedUser = paymentUsers.find(user => String(user.id) === String(loggedInUser.id));
+
+        if (matchedUser) {
+            if (matchedUser.account === "standard" || matchedUser.account === "premium" && matchedUser.status === "approved") {
+                window.location.href = "diabetes.html";
+            }
+             else {
+                alert("Your payment is under review. Please wait for the admin's approval.");
+                return;
+            }
+        } else {
+            if (confirm("You need to upgrade your account. Do you want to go to the pricing page?")) {
+                window.location.href = "pricing.html"; // Redirect to pricing page
+            }
+        }
+    });
+
+    document.getElementById("d1").addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent default link behavior
+
+        // Retrieve and parse sessionStorage data
+        const sessionData = sessionStorage.getItem("loggedInUser");
+        const loggedInUser = sessionData ? JSON.parse(sessionData) : null;
+
+        // Retrieve and parse localStorage data
+        const localData = localStorage.getItem("Paymentusers");
+        const paymentUsers = localData ? JSON.parse(localData) : [];
+
+        // Ensure session data exists
+        if (!loggedInUser || !loggedInUser.id) {
+            alert("You need to log in first!");
+            window.location.href = "signin.html";
+            return;
+        }
+
+        // Find the user in the localStorage array (ensuring ID comparison works)
+        const matchedUser = paymentUsers.find(user => String(user.id) === String(loggedInUser.id));
+
+        if (matchedUser) {
+            if ( matchedUser.account === "standard" || matchedUser.account === "premium" && matchedUser.status === "approved") {
+                window.location.href = "heartdisease.html";
+            }
+             else {
+                alert("Your payment is under review. Please wait for the admin's approval.");
+                return;
+            }
+        } else {
+            if (confirm("You need to upgrade your account. Do you want to go to the pricing page?")) {
+                window.location.href = "pricing.html"; // Redirect to pricing page
+            }
+        }
+    });
+
+    
+    document.getElementById("d2").addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent default link behavior
+
+        // Retrieve and parse sessionStorage data
+        const sessionData = sessionStorage.getItem("loggedInUser");
+        const loggedInUser = sessionData ? JSON.parse(sessionData) : null;
+
+        // Retrieve and parse localStorage data
+        const localData = localStorage.getItem("Paymentusers");
+        const paymentUsers = localData ? JSON.parse(localData) : [];
+
+        // Ensure session data exists
+        if (!loggedInUser || !loggedInUser.id) {
+            alert("You need to log in first!");
+            window.location.href = "signin.html";
+            return;
+        }
+
+        // Find the user in the localStorage array (ensuring ID comparison works)
+        const matchedUser = paymentUsers.find(user => String(user.id) === String(loggedInUser.id));
+
+        if (matchedUser) {
+            if (matchedUser.account === "standard" || matchedUser.account === "premium" && matchedUser.status === "approved") {
+                window.location.href = "diabetes.html";
+            }
+             else {
+                alert("Your payment is under review. Please wait for the admin's approval.");
+                return;
+            }
+        } else {
+            if (confirm("You need to upgrade your account. Do you want to go to the pricing page?")) {
+                window.location.href = "pricing.html"; // Redirect to pricing page
+            }
+        }
+    });
+    
+    document.getElementById("p1").addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent default link behavior
+
+        // Retrieve and parse sessionStorage data
+        const sessionData = sessionStorage.getItem("loggedInUser");
+        const loggedInUser = sessionData ? JSON.parse(sessionData) : null;
+
+        // Retrieve and parse localStorage data
+        const localData = localStorage.getItem("Paymentusers");
+        const paymentUsers = localData ? JSON.parse(localData) : [];
+
+        // Ensure session data exists
+        if (!loggedInUser || !loggedInUser.id) {
+            alert("You need to log in first!");
+            window.location.href = "signin.html";
+            return;
+        }
+
+        // Find the user in the localStorage array (ensuring ID comparison works)
+        const matchedUser = paymentUsers.find(user => String(user.id) === String(loggedInUser.id));
+
+        if (matchedUser) {
+            if (matchedUser.account === "standard" || matchedUser.account === "premium" && matchedUser.status === "approved") {
+                window.location.href = "diabetes.html";
+            }
+             else {
+                alert("Your payment is under review. Please wait for the admin's approval.");
+                return;
+            }
+        } else {
+            if (confirm("You need to upgrade your account. Do you want to go to the pricing page?")) {
+                window.location.href = "pricing.html"; // Redirect to pricing page
+            }
+        }
+    });
+    
+
+    
+    document.getElementById("p2").addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent default link behavior
+
+        // Retrieve and parse sessionStorage data
+        const sessionData = sessionStorage.getItem("loggedInUser");
+        const loggedInUser = sessionData ? JSON.parse(sessionData) : null;
+
+        // Retrieve and parse localStorage data
+        const localData = localStorage.getItem("Paymentusers");
+        const paymentUsers = localData ? JSON.parse(localData) : [];
+
+        // Ensure session data exists
+        if (!loggedInUser || !loggedInUser.id) {
+            alert("You need to log in first!");
+            window.location.href = "signin.html";
+            return;
+        }
+
+        // Find the user in the localStorage array (ensuring ID comparison works)
+        const matchedUser = paymentUsers.find(user => String(user.id) === String(loggedInUser.id));
+
+        if (matchedUser) {
+            if (matchedUser.account === "standard" || matchedUser.account === "premium" && matchedUser.status === "approved") {
+                window.location.href = "diabetes.html";
+            }
+             else {
+                alert("Your payment is under review. Please wait for the admin's approval.");
+                return;
+            }
+        } else {
+            if (confirm("You need to upgrade your account. Do you want to go to the pricing page?")) {
+                window.location.href = "pricing.html"; // Redirect to pricing page
+            }
+        }
+    });
+
+    document.getElementById("eye1").addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent default link behavior
+
+        // Retrieve and parse sessionStorage data
+        const sessionData = sessionStorage.getItem("loggedInUser");
+        const loggedInUser = sessionData ? JSON.parse(sessionData) : null;
+
+        // Retrieve and parse localStorage data
+        const localData = localStorage.getItem("Paymentusers");
+        const paymentUsers = localData ? JSON.parse(localData) : [];
+
+        // Ensure session data exists
+        if (!loggedInUser || !loggedInUser.id) {
+            alert("You need to log in first!");
+            window.location.href = "signin.html";
+            return;
+        }
+
+        // Find the user in the localStorage array (ensuring ID comparison works)
+        const matchedUser = paymentUsers.find(user => String(user.id) === String(loggedInUser.id));
+
+        if (matchedUser) {
+            if (matchedUser.account === "standard" || matchedUser.account === "premium" && matchedUser.status === "approved") {
+                window.location.href = "heartdisease.html";
+            }
+             else {
+                alert("Your payment is under review. Please wait for the admin's approval.");
+                return;
+            }
+        } else {
+            if (confirm("You need to upgrade your account. Do you want to go to the pricing page?")) {
+                window.location.href = "pricing.html"; // Redirect to pricing page
+            }
+        }
+    });
+
+    document.getElementById("eye2").addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent default link behavior
+
+        // Retrieve and parse sessionStorage data
+        const sessionData = sessionStorage.getItem("loggedInUser");
+        const loggedInUser = sessionData ? JSON.parse(sessionData) : null;
+
+        // Retrieve and parse localStorage data
+        const localData = localStorage.getItem("Paymentusers");
+        const paymentUsers = localData ? JSON.parse(localData) : [];
+
+        // Ensure session data exists
+        if (!loggedInUser || !loggedInUser.id) {
+            alert("You need to log in first!");
+            window.location.href = "signin.html";
+            return;
+        }
+
+        // Find the user in the localStorage array (ensuring ID comparison works)
+        const matchedUser = paymentUsers.find(user => String(user.id) === String(loggedInUser.id));
+
+        if (matchedUser) {
+            if (matchedUser.account === "standard" || matchedUser.account === "premium" && matchedUser.status === "approved") {
+                window.location.href = "diabetes.html";
+            }
+             else {
+                alert("Your payment is under review. Please wait for the admin's approval.");
+                return;
+            }
+        } else {
+            if (confirm("You need to upgrade your account. Do you want to go to the pricing page?")) {
+                window.location.href = "pricing.html"; // Redirect to pricing page
+            }
+        }
+    });
+
+    
+    document.getElementById("au1").addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent default link behavior
+
+        // Retrieve and parse sessionStorage data
+        const sessionData = sessionStorage.getItem("loggedInUser");
+        const loggedInUser = sessionData ? JSON.parse(sessionData) : null;
+
+        // Retrieve and parse localStorage data
+        const localData = localStorage.getItem("Paymentusers");
+        const paymentUsers = localData ? JSON.parse(localData) : [];
+
+        // Ensure session data exists
+        if (!loggedInUser || !loggedInUser.id) {
+            alert("You need to log in first!");
+            window.location.href = "signin.html";
+            return;
+        }
+
+        // Find the user in the localStorage array (ensuring ID comparison works)
+        const matchedUser = paymentUsers.find(user => String(user.id) === String(loggedInUser.id));
+
+        if (matchedUser) {
+            if (matchedUser.account === "paltinum" || matchedUser.account === "standard" || matchedUser.account === "premium" && matchedUser.status === "approved") {
+                window.location.href = "diabetes.html";
+            }
+             else {
+                alert("Your payment is under review. Please wait for the admin's approval.");
+                return;
+            }
+        } else {
+            if (confirm("You need to upgrade your account. Do you want to go to the pricing page?")) {
+                window.location.href = "pricing.html"; // Redirect to pricing page
+            }
+        }
+    });
+    
+
+    document.getElementById("au2").addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent default link behavior
+
+        // Retrieve and parse sessionStorage data
+        const sessionData = sessionStorage.getItem("loggedInUser");
+        const loggedInUser = sessionData ? JSON.parse(sessionData) : null;
+
+        // Retrieve and parse localStorage data
+        const localData = localStorage.getItem("Paymentusers");
+        const paymentUsers = localData ? JSON.parse(localData) : [];
+
+        // Ensure session data exists
+        if (!loggedInUser || !loggedInUser.id) {
+            alert("You need to log in first!");
+            window.location.href = "signin.html";
+            return;
+        }
+
+        // Find the user in the localStorage array (ensuring ID comparison works)
+        const matchedUser = paymentUsers.find(user => String(user.id) === String(loggedInUser.id));
+
+        if (matchedUser) {
+            if (matchedUser.account === "paltinum" || matchedUser.account === "standard" || matchedUser.account === "premium" && matchedUser.status === "approved") {
+                window.location.href = "diabetes.html";
+            }
+             else {
+                alert("Your payment is under review. Please wait for the admin's approval.");
+                return;
+            }
+        } else {
+            if (confirm("You need to upgrade your account. Do you want to go to the pricing page?")) {
+                window.location.href = "pricing.html"; // Redirect to pricing page
+            }
+        }
+    });
+
+    document.getElementById("t1").addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent default link behavior
+
+        // Retrieve and parse sessionStorage data
+        const sessionData = sessionStorage.getItem("loggedInUser");
+        const loggedInUser = sessionData ? JSON.parse(sessionData) : null;
+
+        // Retrieve and parse localStorage data
+        const localData = localStorage.getItem("Paymentusers");
+        const paymentUsers = localData ? JSON.parse(localData) : [];
+
+        // Ensure session data exists
+        if (!loggedInUser || !loggedInUser.id) {
+            alert("You need to log in first!");
+            window.location.href = "signin.html";
+            return;
+        }
+
+        // Find the user in the localStorage array (ensuring ID comparison works)
+        const matchedUser = paymentUsers.find(user => String(user.id) === String(loggedInUser.id));
+
+        if (matchedUser) {
+            if (matchedUser.account === "paltinum" || matchedUser.account === "standard" || matchedUser.account === "premium" && matchedUser.status === "approved") {
+                window.location.href = "heartdisease.html";
+            }
+             else {
+                alert("Your payment is under review. Please wait for the admin's approval.");
+                return;
+            }
+        } else {
+            if (confirm("You need to upgrade your account. Do you want to go to the pricing page?")) {
+                window.location.href = "pricing.html"; // Redirect to pricing page
+            }
+        }
+    });
+
+    document.getElementById("t2").addEventListener("click", function (event) {
+    event.preventDefault(); // Prevent default link behavior
+
+    // Retrieve and parse sessionStorage data
+    const sessionData = sessionStorage.getItem("loggedInUser");
+    const loggedInUser = sessionData ? JSON.parse(sessionData) : null;
+
+    // Retrieve and parse localStorage data
+    const localData = localStorage.getItem("Paymentusers");
+    const paymentUsers = localData ? JSON.parse(localData) : [];
+
+    // Ensure session data exists
+    if (!loggedInUser || !loggedInUser.id) {
+        alert("You need to log in first!");
+        window.location.href = "signin.html";
+        return;
+    }
+
+    // Find the user in the localStorage array (ensuring ID comparison works)
+    const matchedUser = paymentUsers.find(user => String(user.id) === String(loggedInUser.id));
+
+    if (matchedUser) {
         if (matchedUser.account === "paltinum" || matchedUser.account === "standard" || matchedUser.account === "premium" && matchedUser.status === "approved") {
             window.location.href = "heartdisease.html";
         }
@@ -253,4 +692,79 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
     });
+
+    
+    document.getElementById("l1").addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent default link behavior
+
+        // Retrieve and parse sessionStorage data
+        const sessionData = sessionStorage.getItem("loggedInUser");
+        const loggedInUser = sessionData ? JSON.parse(sessionData) : null;
+
+        // Retrieve and parse localStorage data
+        const localData = localStorage.getItem("Paymentusers");
+        const paymentUsers = localData ? JSON.parse(localData) : [];
+
+        // Ensure session data exists
+        if (!loggedInUser || !loggedInUser.id) {
+            alert("You need to log in first!");
+            window.location.href = "signin.html";
+            return;
+        }
+
+        // Find the user in the localStorage array (ensuring ID comparison works)
+        const matchedUser = paymentUsers.find(user => String(user.id) === String(loggedInUser.id));
+
+        if (matchedUser) {
+            if (matchedUser.account === "paltinum" || matchedUser.account === "standard" || matchedUser.account === "premium" && matchedUser.status === "approved") {
+                window.location.href = "diabetes.html";
+            }
+             else {
+                alert("Your payment is under review. Please wait for the admin's approval.");
+                return;
+            }
+        } else {
+            if (confirm("You need to upgrade your account. Do you want to go to the pricing page?")) {
+                window.location.href = "pricing.html"; // Redirect to pricing page
+            }
+        }
+    });
+    
+
+    document.getElementById("l2").addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent default link behavior
+
+        // Retrieve and parse sessionStorage data
+        const sessionData = sessionStorage.getItem("loggedInUser");
+        const loggedInUser = sessionData ? JSON.parse(sessionData) : null;
+
+        // Retrieve and parse localStorage data
+        const localData = localStorage.getItem("Paymentusers");
+        const paymentUsers = localData ? JSON.parse(localData) : [];
+
+        // Ensure session data exists
+        if (!loggedInUser || !loggedInUser.id) {
+            alert("You need to log in first!");
+            window.location.href = "signin.html";
+            return;
+        }
+
+        // Find the user in the localStorage array (ensuring ID comparison works)
+        const matchedUser = paymentUsers.find(user => String(user.id) === String(loggedInUser.id));
+
+        if (matchedUser) {
+            if (matchedUser.account === "paltinum" || matchedUser.account === "standard" || matchedUser.account === "premium" && matchedUser.status === "approved") {
+                window.location.href = "diabetes.html";
+            }
+             else {
+                alert("Your payment is under review. Please wait for the admin's approval.");
+                return;
+            }
+        } else {
+            if (confirm("You need to upgrade your account. Do you want to go to the pricing page?")) {
+                window.location.href = "pricing.html"; // Redirect to pricing page
+            }
+        }
+    });
+
 });
